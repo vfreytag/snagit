@@ -1,3 +1,48 @@
-[gd_scene format=3 uid="uid://3tmbc8sgq75k"]
+[gd_scene load_steps=3 format=3 uid="uid://3tmbc8sgq75k"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4xowi"]
+
+[sub_resource type="Environment" id="Environment_4xowi"]
+
+[node name="Scene" type="Node3D"]
+
+[node name="UI" type="Control" parent="."]
+material = SubResource("CanvasItemMaterial_4xowi")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 122.0
+offset_right = 557.0
+offset_bottom = 157.0
+text = "Welcome to SnagIt."
+fit_content = true
+scroll_active = false
+scroll_following = true
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(-0.8651513, -0.3546216, -0.35462153, 0, 0.70710677, -0.70710665, 0.50151056, -0.6117545, -0.61175436, 1.679326, 1, 1.6644757)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(-0.9988495, 2.9802322e-08, -0.04796073, 2.9802322e-08, 1.0000001, 8.940697e-08, 0.04796073, -2.9802322e-08, -0.9988495, -0.05848688, 0.4145397, -16.131014)
+projection = 1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.2557429, 0, 0, 0, 0.71275604, 0, 0, 0, 0.14769125, 0, -0.26951143, 0.44583398)
+size = Vector3(1, 0.64697266, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.9292745, 0, 0.36938995, -0.06860239, 0.9826031, 0.17258307, -0.3629637, -0.18571807, 0.913108, 1.045615, 0.65982354, 2.563148)
+light_color = Color(0.83137256, 0.61960787, 1, 1)
+light_energy = 3.474
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4xowi")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://wdmy7m305xk6"]
+
+[ext_resource type="Texture2D" uid="uid://2nmjl5dma7ad" path="res://icon.svg" id="1_b3hmd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b06yg"]
+
+[node name="StealerScreen" type="Node3D"]
+
+[node name="UI" type="Control" parent="."]
+material = SubResource("CanvasItemMaterial_b06yg")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 169.0
+offset_right = 559.0
+offset_bottom = 503.0
+texture = ExtResource("1_b3hmd")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.9988493, 2.8408873e-08, -0.047960717, 2.9802315e-08, 1, -2.8338683e-08, 0.047960717, -2.973541e-08, -0.9988493, -0.05848688, 0.4145397, -2.0443053)
+projection = 1

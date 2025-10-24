@@ -1,15 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://3tmbc8sgq75k"]
 
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="1_u7mc5"]
+[ext_resource type="Script" uid="uid://dwbsbk4nxum6t" path="res://global.gd" id="1_y0lg1"]
 [ext_resource type="Script" uid="uid://c5klt2xai3lxg" path="res://health.gd" id="2_juek5"]
 [ext_resource type="PackedScene" uid="uid://ts0jojcndxlt" path="res://assets/3DModel/market1.fbx" id="2_y0lg1"]
 [ext_resource type="PackedScene" uid="uid://b1dsdhs65wt1y" path="res://scenes/steal_ui.tscn" id="3_juek5"]
-
-[sub_resource type="GDScript" id="GDScript_y0lg1"]
-script/source = "extends Node3D
-
-var health: int = 60
-"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a0tk4"]
 render_priority = 0
@@ -36,7 +31,7 @@ ambient_light_source = 2
 ambient_light_color = Color(0.8481287, 0.7463963, 0.5298973, 1)
 
 [node name="Scene" type="Node3D"]
-script = SubResource("GDScript_y0lg1")
+script = ExtResource("1_y0lg1")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_juek5")
@@ -123,7 +118,6 @@ offset_bottom = 652.0
 
 [node name="Steal_UI" parent="Control" instance=ExtResource("3_juek5")]
 layout_mode = 1
-script = null
 
 [node name="top_eyelid" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="2"]
 transform = Transform3D(-1.2755329e-07, 0.6427875, -0.7660445, -1, -1.6292067e-07, 2.9802322e-08, -1.0564794e-07, 0.7660444, 0.6427876, 0, 0, 0)

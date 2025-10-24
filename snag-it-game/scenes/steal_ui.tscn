@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1dsdhs65wt1y"]
+[gd_scene load_steps=15 format=3 uid="uid://b1dsdhs65wt1y"]
 
 [ext_resource type="PackedScene" uid="uid://r83u5t4wcdo4" path="res://eye_for_ui.tscn" id="1_gd1u3"]
 [ext_resource type="Texture2D" uid="uid://bnfu4gy4r7o1v" path="res://assets/3DModel/eye_eye_lid.png" id="1_un3id"]
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="2_jtt6j"]
 [ext_resource type="PackedScene" uid="uid://cwf4la5olcll2" path="res://assets/3DModel/back_button.fbx" id="3_n4h7b"]
 [ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="4_djlq0"]
+[ext_resource type="Script" uid="uid://crjmb0u5f28ko" path="res://scripts/eyeopener.gd" id="4_yil47"]
 
 [sub_resource type="Environment" id="Environment_yil47"]
 background_energy_multiplier = 2.5
@@ -18,13 +19,6 @@ environment = SubResource("Environment_yil47")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i6itp"]
 render_priority = 0
 shader = ExtResource("2_jtt6j")
-shader_parameter/depth_threshold = 0.05
-shader_parameter/reverse_depth_threshold = 0.25
-shader_parameter/normal_threshold = 0.6
-shader_parameter/darken_amount = 0.3
-shader_parameter/lighten_amount = 1.5
-shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
-shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
 
 [sub_resource type="QuadMesh" id="QuadMesh_ivrty"]
 material = SubResource("ShaderMaterial_i6itp")
@@ -104,10 +98,13 @@ skeleton = NodePath("../../..")
 [node name="eye" parent="Eye_Container/SubViewport" instance=ExtResource("1_gd1u3")]
 
 [node name="top_eyelid" parent="Eye_Container/SubViewport/eye" index="2"]
-transform = Transform3D(0.33775204, 0.60501415, -0.721028, -0.94123507, 0.21710278, -0.25873312, 0, 0.7660444, 0.6427875, 0, 0, 0)
+transform = Transform3D(0.337752, 0.60501415, -0.7210279, -0.941235, 0.21710278, -0.2587331, 0, 0.7660444, 0.64278746, 0, 0, 0)
 
 [node name="low_eyelid" parent="Eye_Container/SubViewport/eye" index="3"]
-transform = Transform3D(0.3627308, 0.59900975, -0.7138723, 0.93189394, -0.23315889, 0.2778679, -7.4505806e-08, -0.7660447, -0.64278746, 0, 0, 0)
+transform = Transform3D(0.36273077, 0.59900975, -0.7138723, 0.9318939, -0.23315889, 0.2778679, -7.45058e-08, -0.7660447, -0.64278746, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="Eye_Container/SubViewport/eye" index="4"]
+script = ExtResource("4_yil47")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
@@ -182,5 +179,8 @@ text = "Bonjour You stealer...."
 label_settings = SubResource("LabelSettings_jtt6j")
 horizontal_alignment = 1
 uppercase = true
+
+[connection signal="animation_changed" from="Eye_Container/SubViewport/eye/AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[connection signal="current_animation_changed" from="Eye_Container/SubViewport/eye/AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
 
 [editable path="Eye_Container/SubViewport/eye"]

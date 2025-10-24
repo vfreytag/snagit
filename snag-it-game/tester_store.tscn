@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://3tmbc8sgq75k"]
+[gd_scene load_steps=9 format=3 uid="uid://3tmbc8sgq75k"]
 
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="1_u7mc5"]
 [ext_resource type="PackedScene" uid="uid://ts0jojcndxlt" path="res://assets/3DModel/market1.fbx" id="2_y0lg1"]
@@ -31,7 +31,16 @@ material = SubResource("ShaderMaterial_noarx")
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="Sky" id="Sky_u7mc5"]
+
 [sub_resource type="Environment" id="Environment_4xowi"]
+background_mode = 1
+background_color = Color(0.27572307, 0.52748096, 0.39189824, 1)
+background_energy_multiplier = 2.2
+sky = SubResource("Sky_u7mc5")
+sky_custom_fov = 11.6
+ambient_light_source = 2
+ambient_light_color = Color(0.8481287, 0.7463963, 0.5298973, 1)
 
 [node name="Scene" type="Node3D"]
 
@@ -72,37 +81,37 @@ transform = Transform3D(0.9292745, 0, 0.36938995, -0.06860239, 0.9826031, 0.1725
 light_color = Color(0.83137256, 0.61960787, 1, 1)
 light_energy = 3.474
 
-[node name="market1" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_y0lg1")]
+[node name="SuperMarket" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_y0lg1")]
 
-[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
+[node name="lights" type="Node3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(0.99303955, -0.11757489, -0.006972732, 0.0071204593, 0.00083644706, 0.9999743, -0.117566034, -0.99306375, 0.0016678122, 1.045615, 3.7993608, -1.8990254)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/lights"]
 transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, 0, 0, 0)
 light_color = Color(0.8235294, 1, 1, 1)
 light_energy = 10.402
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="SubViewportContainer/SubViewport/lights"]
 transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, -6.3901305, 0.756585, 0.044868946)
 light_color = Color(0.8235294, 1, 1, 1)
 light_energy = 10.402
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+[node name="SpotLight3D3" type="SpotLight3D" parent="SubViewportContainer/SubViewport/lights"]
 transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, -11.865405, 1.404852, 0.08331418)
 light_color = Color(0.8235294, 1, 1, 1)
 light_energy = 10.402
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+[node name="SpotLight3D4" type="SpotLight3D" parent="SubViewportContainer/SubViewport/lights"]
 transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, -17.083155, 2.0226283, 0.11995125)
 light_color = Color(0.8235294, 1, 1, 1)
 light_energy = 10.402
 
-[node name="SpotLight3D5" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+[node name="SpotLight3D5" type="SpotLight3D" parent="SubViewportContainer/SubViewport/lights"]
 transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, -23.473284, 2.7792134, 0.1648202)
 light_color = Color(0.8235294, 1, 1, 1)
 light_energy = 10.402
 
-[node name="SpotLight3D6" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+[node name="SpotLight3D6" type="SpotLight3D" parent="SubViewportContainer/SubViewport/lights"]
 transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, -28.948559, 3.4274802, 0.20326543)
 light_color = Color(0.8235294, 1, 1, 1)
 light_energy = 10.402

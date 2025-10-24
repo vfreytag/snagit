@@ -103,6 +103,12 @@ skeleton = NodePath("../../..")
 
 [node name="eye" parent="Eye_Container/SubViewport" instance=ExtResource("1_gd1u3")]
 
+[node name="top_eyelid" parent="Eye_Container/SubViewport/eye" index="2"]
+transform = Transform3D(0.33775204, 0.60501415, -0.721028, -0.94123507, 0.21710278, -0.25873312, 0, 0.7660444, 0.6427875, 0, 0, 0)
+
+[node name="low_eyelid" parent="Eye_Container/SubViewport/eye" index="3"]
+transform = Transform3D(0.3627308, 0.59900975, -0.7138723, 0.93189394, -0.23315889, 0.2778679, -7.4505806e-08, -0.7660447, -0.64278746, 0, 0, 0)
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
 layout_mode = 0
@@ -176,3 +182,5 @@ text = "Bonjour You stealer...."
 label_settings = SubResource("LabelSettings_jtt6j")
 horizontal_alignment = 1
 uppercase = true
+
+[editable path="Eye_Container/SubViewport/eye"]

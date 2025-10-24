@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://xpmr6nhjtiga"]
+
+[ext_resource type="Texture2D" uid="uid://c075s32v0w1vf" path="res://assets/3DModel/nerd-nerdy.png" id="1_vshg3"]
+[ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="2_k3x6c"]
+
+[node name="TypingScreen" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 641.0
+texture = ExtResource("1_vshg3")
+stretch_mode = 1
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = -2.0
+offset_top = 397.0
+offset_right = 1154.0
+offset_bottom = 475.0
+theme_override_fonts/font = ExtResource("2_k3x6c")
+placeholder_text = "COPY WHAT I SAY !!!!!"
+context_menu_enabled = false
+emoji_menu_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+caret_type = 1
+caret_blink = true
+caret_blink_interval = 0.76
+
+[node name="Label" type="Label" parent="."]
+offset_top = 191.0
+offset_right = 1153.0
+offset_bottom = 289.0
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("2_k3x6c")
+theme_override_font_sizes/font_size = 45
+text = "COPY WHAT I SAY!!!!!"
+horizontal_alignment = 1
+vertical_alignment = 1

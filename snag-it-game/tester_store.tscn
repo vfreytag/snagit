@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://3tmbc8sgq75k"]
+
+[ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="1_u7mc5"]
+[ext_resource type="PackedScene" uid="uid://ts0jojcndxlt" path="res://assets/3DModel/market1.fbx" id="2_y0lg1"]
+[ext_resource type="PackedScene" uid="uid://b1dsdhs65wt1y" path="res://scenes/steal_ui.tscn" id="3_juek5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a0tk4"]
+render_priority = 0
+shader = ExtResource("1_u7mc5")
+shader_parameter/depth_threshold = 0.05
+shader_parameter/reverse_depth_threshold = 0.25
+shader_parameter/normal_threshold = 0.6
+shader_parameter/darken_amount = 0.3
+shader_parameter/lighten_amount = 1.5
+shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
+shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_noarx"]
+render_priority = 0
+shader = ExtResource("1_u7mc5")
+shader_parameter/depth_threshold = 0.05
+shader_parameter/reverse_depth_threshold = 0.25
+shader_parameter/normal_threshold = 0.6
+shader_parameter/darken_amount = 0.3
+shader_parameter/lighten_amount = 1.5
+shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
+shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_r3fl7"]
+material = SubResource("ShaderMaterial_noarx")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="Environment" id="Environment_4xowi"]
+
+[node name="Scene" type="Node3D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_a0tk4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(576, 324)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.99993503, -0.004251617, 0.010577334, 0, 0.92784977, 0.37295425, -0.011399835, 0.37293002, -0.92778945, -15.291281, 2.9939609, -4.5317874)
+current = true
+size = 10.0
+far = 97.06
+
+[node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(0.582154, 0, -0.813079, -0.303241, 0.92785, -0.217117, 0.754415, 0.372954, 0.540151, 1.43051e-06, 7.27177e-06, -11.3814)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_r3fl7")
+skeleton = NodePath("../../..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
+environment = SubResource("Environment_4xowi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.9292745, 0, 0.36938995, -0.06860239, 0.9826031, 0.17258307, -0.3629637, -0.18571807, 0.913108, 1.045615, 0.65982354, 2.563148)
+light_color = Color(0.83137256, 0.61960787, 1, 1)
+light_energy = 3.474
+
+[node name="market1" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_y0lg1")]
+
+[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.99303955, -0.11757489, -0.006972732, 0.0071204593, 0.00083644706, 0.9999743, -0.117566034, -0.99306375, 0.0016678122, 1.045615, 3.7993608, -1.8990254)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, 0, 0, 0)
+light_color = Color(0.8235294, 1, 1, 1)
+light_energy = 10.402
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, -6.3901305, 0.756585, 0.044868946)
+light_color = Color(0.8235294, 1, 1, 1)
+light_energy = 10.402
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, -11.865405, 1.404852, 0.08331418)
+light_color = Color(0.8235294, 1, 1, 1)
+light_energy = 10.402
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, -17.083155, 2.0226283, 0.11995125)
+light_color = Color(0.8235294, 1, 1, 1)
+light_energy = 10.402
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, -23.473284, 2.7792134, 0.1648202)
+light_color = Color(0.8235294, 1, 1, 1)
+light_energy = 10.402
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, -2.0372681e-10, -7.450581e-09, 1, 0, 2.910383e-10, -1.1641532e-10, 1, -28.948559, 3.4274802, 0.20326543)
+light_color = Color(0.8235294, 1, 1, 1)
+light_energy = 10.402
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 1150.0
+offset_bottom = 652.0
+
+[node name="Steal_UI" parent="Control" instance=ExtResource("3_juek5")]
+layout_mode = 1
+
+[node name="top_eyelid" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="2"]
+transform = Transform3D(-1.2755329e-07, 0.6427875, -0.7660445, -1, -1.6292067e-07, 2.9802322e-08, -1.0564794e-07, 0.7660444, 0.6427876, 0, 0, 0)
+
+[node name="low_eyelid" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="3"]
+transform = Transform3D(5.2672373e-09, 0.6427877, -0.76604444, 1, -4.3711392e-08, -2.9802322e-08, -5.2641433e-08, -0.76604456, -0.64278764, 0, 0, 0)
+
+[node name="SubViewport" parent="Control/Steal_UI/SubViewportContainer2" index="0"]
+size = Vector2i(1147, 649)
+
+[editable path="Control/Steal_UI"]
+[editable path="Control/Steal_UI/Eye_Container/SubViewport/eye"]

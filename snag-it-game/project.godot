@@ -14,3 +14,13 @@ config/name="Snag_It_Game"
 run/main_scene="uid://3tmbc8sgq75k"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[importer_defaults]
+
+animation_library={
+&"blender/meshes/export_geometry_nodes_instances": true
+}
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

@@ -19,4 +19,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			print(Global.health)
 		print(Global.health)
 		Global.health -=1
+		if text == "Bees":
+			print("win")
 	#pass

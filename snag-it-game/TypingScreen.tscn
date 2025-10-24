@@ -7,6 +7,7 @@
 [node name="TypingScreen" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 offset_right = 1155.0
 offset_bottom = 641.0
 texture = ExtResource("1_vshg3")

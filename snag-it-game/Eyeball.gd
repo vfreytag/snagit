@@ -7,15 +7,16 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func process(delta) -> void:
-	if Global.fullhealth == true:
-		anim.play("eye/eye_close_0")
-	if Global.threequathealth == true:
-		anim.play("eye/eye_open-25")
-	if Global.halfhealth == true:
-		anim.play("eye/eye_open_50")
-	if Global.quathealth == true:
-		anim.play("eye/eye_open_75")
-	if Global.nohealth == true:
-		anim.play("eye/eye_caught")
+#func physics_process() -> void:
+#	if Global.fullhealth == true:
+#		print("hi")
+#		anim.play("eye/eye_close_0")
+##	if Global.threequathealth == true:
+#		anim.play("eye/eye_open-25")
+##	if Global.halfhealth == true:
+###		anim.play("eye/eye_open_50")
+#	if Global.quathealth == true:
+	#	anim.play("eye/eye_open_75")
+	#if Global.nohealth == true:ff
+	#	anim.play("eye/eye_caught")
 	

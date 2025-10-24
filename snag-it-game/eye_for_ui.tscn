@@ -3,6 +3,75 @@
 [ext_resource type="PackedScene" uid="uid://vvfmj7noe27m" path="res://assets/3DModel/eye.tscn" id="1_2dxqr"]
 [ext_resource type="AnimationLibrary" uid="uid://bc3usmayrflx8" path="res://assets/3DModel/eye_anim/eye.res" id="2_mrcaq"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2dxqr"]
+animation = &"eye/eye_caught"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mrcaq"]
+animation = &"eye/eye_close_0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wxyli"]
+animation = &"eye/eye_open-25"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ioec"]
+animation = &"eye/eye_open_50"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sqnsw"]
+animation = &"eye/eye_open_75"
+
+[sub_resource type="Curve" id="Curve_mrcaq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jnfxt"]
+xfade_time = 1.0
+xfade_curve = SubResource("Curve_mrcaq")
+advance_expression = "if Global.threequathealth = true"
+
+[sub_resource type="Curve" id="Curve_wxyli"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4o3bx"]
+xfade_time = 1.0
+xfade_curve = SubResource("Curve_wxyli")
+break_loop_at_end = true
+advance_expression = "if Global.quathealth = true"
+
+[sub_resource type="Curve" id="Curve_4ioec"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2rwd2"]
+xfade_time = 1.0
+xfade_curve = SubResource("Curve_4ioec")
+break_loop_at_end = true
+advance_expression = "if Global.nohealth = true"
+
+[sub_resource type="Curve" id="Curve_2dxqr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2dxqr"]
+xfade_time = 1.0
+xfade_curve = SubResource("Curve_2dxqr")
+break_loop_at_end = true
+advance_expression = "if Global.fullhealth = true"
+
+[sub_resource type="Curve" id="Curve_sqnsw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mrcaq"]
+xfade_time = 1.0
+xfade_curve = SubResource("Curve_sqnsw")
+break_loop_at_end = true
+advance_expression = "if Global.halfhealth = true"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g6vum"]
+allow_transition_to_self = true
+states/Start/position = Vector2(140, 106)
+states/eye_eye_caught/node = SubResource("AnimationNodeAnimation_2dxqr")
+states/eye_eye_caught/position = Vector2(738, 186)
+states/eye_eye_close_0/node = SubResource("AnimationNodeAnimation_mrcaq")
+states/eye_eye_close_0/position = Vector2(272, 61)
+states/eye_eye_open-25/node = SubResource("AnimationNodeAnimation_wxyli")
+states/eye_eye_open-25/position = Vector2(492, 52)
+states/eye_eye_open_50/node = SubResource("AnimationNodeAnimation_4ioec")
+states/eye_eye_open_50/position = Vector2(378, 204)
+states/eye_eye_open_75/node = SubResource("AnimationNodeAnimation_sqnsw")
+states/eye_eye_open_75/position = Vector2(732, 70)
+transitions = ["eye_eye_close_0", "eye_eye_open-25", SubResource("AnimationNodeStateMachineTransition_jnfxt"), "eye_eye_open_50", "eye_eye_open_75", SubResource("AnimationNodeStateMachineTransition_4o3bx"), "eye_eye_open_75", "eye_eye_caught", SubResource("AnimationNodeStateMachineTransition_2rwd2"), "Start", "eye_eye_close_0", SubResource("AnimationNodeStateMachineTransition_2dxqr"), "eye_eye_open-25", "eye_eye_open_50", SubResource("AnimationNodeStateMachineTransition_mrcaq")]
+
 [sub_resource type="Animation" id="Animation_jtif5"]
 resource_name = "back_eye_move"
 length = 3.125
@@ -139,72 +208,6 @@ _data = {
 &"top_eyelid_move": SubResource("Animation_d4gis")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2dxqr"]
-animation = &"eye/eye_caught"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mrcaq"]
-animation = &"eye/eye_close_0"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wxyli"]
-animation = &"eye/eye_open-25"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ioec"]
-animation = &"eye/eye_open_50"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sqnsw"]
-animation = &"eye/eye_open_75"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jnfxt"]
-xfade_time = 1.5
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vvnjh"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4o3bx"]
-xfade_time = 1.5
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2rwd2"]
-xfade_time = 1.5
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x47jp"]
-xfade_time = 1.5
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hyl1j"]
-xfade_time = 1.5
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1erlk"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aihe7"]
-xfade_time = 1.55
-advance_mode = 2
-
-[sub_resource type="Curve" id="Curve_qkjx8"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s3v60"]
-xfade_curve = SubResource("Curve_qkjx8")
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g6vum"]
-allow_transition_to_self = true
-states/Start/position = Vector2(139, 106)
-states/eye_eye_caught/node = SubResource("AnimationNodeAnimation_2dxqr")
-states/eye_eye_caught/position = Vector2(738, 186)
-states/eye_eye_close_0/node = SubResource("AnimationNodeAnimation_mrcaq")
-states/eye_eye_close_0/position = Vector2(283, 59)
-states/eye_eye_open-25/node = SubResource("AnimationNodeAnimation_wxyli")
-states/eye_eye_open-25/position = Vector2(492, 53)
-states/eye_eye_open_50/node = SubResource("AnimationNodeAnimation_4ioec")
-states/eye_eye_open_50/position = Vector2(378, 204)
-states/eye_eye_open_75/node = SubResource("AnimationNodeAnimation_sqnsw")
-states/eye_eye_open_75/position = Vector2(732, 70)
-transitions = ["eye_eye_close_0", "eye_eye_open-25", SubResource("AnimationNodeStateMachineTransition_jnfxt"), "eye_eye_open-25", "eye_eye_open_50", SubResource("AnimationNodeStateMachineTransition_vvnjh"), "eye_eye_open_50", "eye_eye_open_75", SubResource("AnimationNodeStateMachineTransition_4o3bx"), "eye_eye_open_75", "eye_eye_caught", SubResource("AnimationNodeStateMachineTransition_2rwd2"), "eye_eye_caught", "eye_eye_open_75", SubResource("AnimationNodeStateMachineTransition_x47jp"), "eye_eye_open_75", "eye_eye_open_50", SubResource("AnimationNodeStateMachineTransition_hyl1j"), "eye_eye_open_50", "eye_eye_open-25", SubResource("AnimationNodeStateMachineTransition_1erlk"), "eye_eye_open-25", "eye_eye_close_0", SubResource("AnimationNodeStateMachineTransition_aihe7"), "Start", "eye_eye_close_0", SubResource("AnimationNodeStateMachineTransition_s3v60")]
-
 [node name="eye" instance=ExtResource("1_2dxqr")]
 transform = Transform3D(0.955784, 0.1738505, -0.2371773, -0.17895679, 0.98385704, 0, 0.23334849, 0.04244448, 0.97146636, 0, 0, 0)
 
@@ -213,20 +216,20 @@ transform = Transform3D(1.0240202, 0, 0, 0, 1.0240202, 0, 0, 0, 1.0240202, 0, 0,
 visible = false
 
 [node name="top_eyelid" parent="." index="2"]
-transform = Transform3D(0.060807087, 0.6201229, -0.7821445, -0.99737734, 0.068565845, -0.023177743, 0.039255355, 0.7815024, 0.6226659, 0, 0, 0)
+transform = Transform3D(1, 2.88972e-06, -1.347514e-06, -2.889732e-06, 0.9999999, -8.655351e-06, 1.3474889e-06, 8.655354e-06, 1, 0, 0, 0)
 
 [node name="low_eyelid" parent="." index="3"]
-transform = Transform3D(0.14344442, 0.6834819, -0.71573484, 0.9865561, -0.041536655, 0.15805635, 0.0782994, -0.7287849, -0.6802513, 0, 0, 0)
+transform = Transform3D(1, -1.979138e-06, -4.2443944e-06, 1.9792328e-06, 1.0000001, 2.2367465e-05, 4.2443503e-06, -2.2367476e-05, 1, 0, 0, 0)
 
-[node name="AnimationPlayer" parent="." index="4"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+tree_root = SubResource("AnimationNodeStateMachine_g6vum")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" parent="." index="5"]
 libraries = {
 &"": SubResource("AnimationLibrary_auk30"),
 &"eye": ExtResource("2_mrcaq")
 }
 autoplay = "eye/eye_close_0"
 blend_times = [&"eye/eye_close_0", &"back_eye_move", 10.0, &"eye/eye_close_0", &"eye/RESET", 10.0, &"eye/eye_close_0", &"eye/eye_caught", 10.0, &"eye/eye_close_0", &"eye/eye_close_0", 10.0, &"eye/eye_close_0", &"eye/eye_open-25", 10.0, &"eye/eye_close_0", &"eye/eye_open_50", 10.0, &"eye/eye_close_0", &"eye/eye_open_75", 10.0]
-
-[node name="AnimationTree" type="AnimationTree" parent="." index="5"]
-tree_root = SubResource("AnimationNodeStateMachine_g6vum")
-advance_expression_base_node = NodePath("..")
-anim_player = NodePath("../AnimationPlayer")

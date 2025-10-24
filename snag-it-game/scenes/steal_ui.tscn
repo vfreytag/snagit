@@ -5,7 +5,6 @@
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="2_jtt6j"]
 [ext_resource type="PackedScene" uid="uid://cwf4la5olcll2" path="res://assets/3DModel/back_button.fbx" id="3_n4h7b"]
 [ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="4_djlq0"]
-[ext_resource type="Script" uid="uid://crjmb0u5f28ko" path="res://scripts/eyeopener.gd" id="4_yil47"]
 
 [sub_resource type="Environment" id="Environment_yil47"]
 background_energy_multiplier = 2.5
@@ -24,6 +23,10 @@ shader = ExtResource("2_jtt6j")
 material = SubResource("ShaderMaterial_i6itp")
 flip_faces = true
 size = Vector2(2, 2)
+
+[sub_resource type="GDScript" id="GDScript_jtt6j"]
+script/source = "extends AnimationPlayer
+"
 
 [sub_resource type="Environment" id="Environment_jtt6j"]
 
@@ -98,13 +101,13 @@ skeleton = NodePath("../../..")
 [node name="eye" parent="Eye_Container/SubViewport" instance=ExtResource("1_gd1u3")]
 
 [node name="top_eyelid" parent="Eye_Container/SubViewport/eye" index="2"]
-transform = Transform3D(0.337752, 0.60501415, -0.7210279, -0.941235, 0.21710278, -0.2587331, 0, 0.7660444, 0.64278746, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="low_eyelid" parent="Eye_Container/SubViewport/eye" index="3"]
-transform = Transform3D(0.36273077, 0.59900975, -0.7138723, 0.9318939, -0.23315889, 0.2778679, -7.45058e-08, -0.7660447, -0.64278746, 0, 0, 0)
+transform = Transform3D(0.9999999, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="AnimationPlayer" parent="Eye_Container/SubViewport/eye" index="4"]
-script = ExtResource("4_yil47")
+[node name="AnimationPlayer" parent="Eye_Container/SubViewport/eye" index="5"]
+script = SubResource("GDScript_jtt6j")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1

@@ -123,13 +123,12 @@ offset_bottom = 652.0
 
 [node name="Steal_UI" parent="Control" instance=ExtResource("3_juek5")]
 layout_mode = 1
-script = null
 
 [node name="top_eyelid" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="2"]
-transform = Transform3D(-1.2755329e-07, 0.6427875, -0.7660445, -1, -1.6292067e-07, 2.9802322e-08, -1.0564794e-07, 0.7660444, 0.6427876, 0, 0, 0)
+transform = Transform3D(-0.07572753, 0.64094186, -0.7638449, -0.9971286, -0.04867677, 0.058010608, -7.8231096e-08, 0.76604456, 0.6427876, 0, 0, 0)
 
 [node name="low_eyelid" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="3"]
-transform = Transform3D(5.2672373e-09, 0.6427877, -0.76604444, 1, -4.3711392e-08, -2.9802322e-08, -5.2641433e-08, -0.76604456, -0.64278764, 0, 0, 0)
+transform = Transform3D(0.36273077, 0.59900975, -0.7138723, 0.9318939, -0.23315889, 0.2778679, -7.45058e-08, -0.7660447, -0.64278746, 0, 0, 0)
 
 [node name="SubViewport" parent="Control/Steal_UI/SubViewportContainer2" index="0"]
 size = Vector2i(1147, 649)

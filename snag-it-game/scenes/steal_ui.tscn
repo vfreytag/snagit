@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1dsdhs65wt1y"]
+[gd_scene load_steps=14 format=3 uid="uid://b1dsdhs65wt1y"]
 
 [ext_resource type="PackedScene" uid="uid://r83u5t4wcdo4" path="res://eye_for_ui.tscn" id="1_gd1u3"]
 [ext_resource type="Texture2D" uid="uid://bnfu4gy4r7o1v" path="res://assets/3DModel/eye_eye_lid.png" id="1_un3id"]
@@ -23,10 +23,6 @@ shader = ExtResource("2_jtt6j")
 material = SubResource("ShaderMaterial_i6itp")
 flip_faces = true
 size = Vector2(2, 2)
-
-[sub_resource type="GDScript" id="GDScript_jtt6j"]
-script/source = "extends AnimationPlayer
-"
 
 [sub_resource type="Environment" id="Environment_jtt6j"]
 
@@ -99,15 +95,6 @@ mesh = SubResource("QuadMesh_ivrty")
 skeleton = NodePath("../../..")
 
 [node name="eye" parent="Eye_Container/SubViewport" instance=ExtResource("1_gd1u3")]
-
-[node name="top_eyelid" parent="Eye_Container/SubViewport/eye" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0)
-
-[node name="low_eyelid" parent="Eye_Container/SubViewport/eye" index="3"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="AnimationPlayer" parent="Eye_Container/SubViewport/eye" index="5"]
-script = SubResource("GDScript_jtt6j")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
@@ -182,8 +169,3 @@ text = "Bonjour You stealer...."
 label_settings = SubResource("LabelSettings_jtt6j")
 horizontal_alignment = 1
 uppercase = true
-
-[connection signal="animation_changed" from="Eye_Container/SubViewport/eye/AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
-[connection signal="current_animation_changed" from="Eye_Container/SubViewport/eye/AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
-
-[editable path="Eye_Container/SubViewport/eye"]

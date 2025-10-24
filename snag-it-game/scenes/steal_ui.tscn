@@ -1,28 +1,77 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1dsdhs65wt1y"]
+[gd_scene load_steps=14 format=3 uid="uid://b1dsdhs65wt1y"]
 
 [ext_resource type="PackedScene" uid="uid://r83u5t4wcdo4" path="res://eye_for_ui.tscn" id="1_gd1u3"]
+[ext_resource type="Texture2D" uid="uid://bnfu4gy4r7o1v" path="res://assets/3DModel/eye_eye_lid.png" id="1_un3id"]
+[ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="2_jtt6j"]
+[ext_resource type="PackedScene" uid="uid://cwf4la5olcll2" path="res://assets/3DModel/back_button.fbx" id="3_n4h7b"]
+[ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="4_djlq0"]
 
-[sub_resource type="Environment" id="Environment_un3id"]
+[sub_resource type="Environment" id="Environment_yil47"]
+background_energy_multiplier = 2.5
 ambient_light_source = 2
-ambient_light_color = Color(0.84715563, 0.8170539, 0.9155792, 1)
-ambient_light_energy = 7.47
-glow_intensity = 1.52
+ambient_light_color = Color(0.8902384, 0.88622326, 0.91116637, 1)
+ambient_light_energy = 3.5
 
-[sub_resource type="World3D" id="World3D_n4h7b"]
-environment = SubResource("Environment_un3id")
+[sub_resource type="World3D" id="World3D_djlq0"]
+environment = SubResource("Environment_yil47")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i6itp"]
+render_priority = 0
+shader = ExtResource("2_jtt6j")
+shader_parameter/depth_threshold = 0.05
+shader_parameter/reverse_depth_threshold = 0.25
+shader_parameter/normal_threshold = 0.6
+shader_parameter/darken_amount = 0.3
+shader_parameter/lighten_amount = 1.5
+shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
+shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ivrty"]
+material = SubResource("ShaderMaterial_i6itp")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="Environment" id="Environment_jtt6j"]
+
+[sub_resource type="World3D" id="World3D_yil47"]
+environment = SubResource("Environment_jtt6j")
+
+[sub_resource type="Environment" id="Environment_djlq0"]
+background_energy_multiplier = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(0.87964374, 0.67865664, 0.6876179, 1)
+ambient_light_energy = 1.69
+
+[sub_resource type="LabelSettings" id="LabelSettings_jtt6j"]
+font = ExtResource("4_djlq0")
+font_size = 54
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Steal_UI" type="Control"]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_group_ = true
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="TestBG" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -188.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_un3id")
+
+[node name="Eye_Container" type="SubViewportContainer" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -32,15 +81,98 @@ offset_top = 21.0
 offset_right = 93.0
 offset_bottom = 328.0
 grow_horizontal = 0
-scale = Vector2(0.625, 0.625)
+scale = Vector2(0.58, 0.58)
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-world_3d = SubResource("World3D_n4h7b")
+[node name="SubViewport" type="SubViewport" parent="Eye_Container"]
+world_3d = SubResource("World3D_djlq0")
+transparent_bg = true
 handle_input_locally = false
 size = Vector2i(323, 307)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="Eye_Container/SubViewport"]
 transform = Transform3D(-0.017277863, 0, 0.9998508, 0, 1, 0, -0.9998508, 0, -0.017277863, 2.5035112, 0, 0)
 
-[node name="eye" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_gd1u3")]
+[node name="PostProcessing" type="MeshInstance3D" parent="Eye_Container/SubViewport/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(0.582154, 0, -0.813079, -0.303241, 0.92785, -0.217117, 0.754415, 0.372954, 0.540151, 1.43051e-06, 7.27177e-06, -11.3814)
+transparency = 1.0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_ivrty")
+skeleton = NodePath("../../..")
+
+[node name="eye" parent="Eye_Container/SubViewport" instance=ExtResource("1_gd1u3")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 510.0
+offset_bottom = 512.0
+scale = Vector2(0.39, 0.39)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+own_world_3d = true
+world_3d = SubResource("World3D_yil47")
+transparent_bg = true
+handle_input_locally = false
+scaling_3d_scale = 1.2
+size = Vector2i(510, 512)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+environment = SubResource("Environment_djlq0")
+
+[node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(0.582154, 0, -0.813079, -0.303241, 0.92785, -0.217117, 0.754415, 0.372954, 0.540151, 1.43051e-06, 7.27177e-06, -11.3814)
+transparency = 1.0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_ivrty")
+skeleton = NodePath("../../..")
+
+[node name="back_button" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_n4h7b")]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -2.1670742, 0, -0.7933582)
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3107639
+anchor_top = 0.28395063
+anchor_right = 0.7007639
+anchor_bottom = 0.67395055
+offset_right = 702.72003
+offset_bottom = 395.28003
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.39, 0.39)
+stretch = true
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+own_world_3d = true
+world_3d = SubResource("World3D_yil47")
+transparent_bg = true
+handle_input_locally = false
+scaling_3d_scale = 1.2
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="SubViewportContainer2/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.5
+offset_top = -50.0
+offset_right = 571.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Bonjour You stealer...."
+label_settings = SubResource("LabelSettings_jtt6j")
+horizontal_alignment = 1
+uppercase = true

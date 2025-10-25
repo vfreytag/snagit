@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwvcx6v0tixkv"]
+
+[ext_resource type="PackedScene" uid="uid://cwf4la5olcll2" path="res://assets/3DModel/back_button.fbx" id="2_j3kqf"]
+
+[sub_resource type="Animation" id="Animation_fdnhb"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_s355c"]
+resource_name = "arrow_bob"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("back_button")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.8666667, 1, -0.12, 0.12, 0, 5, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_13g0e"]
+_data = {
+&"RESET": SubResource("Animation_fdnhb"),
+&"arrow_bob": SubResource("Animation_s355c")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="back_button" parent="." instance=ExtResource("2_j3kqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_13g0e")
+}
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.257574, 0.76559556, 0.5895076, -0.30652988, -0.6433223, 0.7015525, 0.91634876, 0, 0.40038097, 0.12950993, 1.8823524, 0.9739115)
+light_energy = 8.821
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.400381, 0, -0.91634876, 0, 1, 0, 0.91634876, 0, 0.400381, -4.4212637, 0, 0.47622156)
+light_color = Color(0, 0.8558107, 0.85915875, 1)
+light_energy = 16.0
+light_indirect_energy = 1.1
+light_volumetric_fog_energy = 5.591
+spot_range = 4.3294473
+spot_angle = 24.897055

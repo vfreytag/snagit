@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://3tmbc8sgq75k"]
+[gd_scene load_steps=13 format=3 uid="uid://3tmbc8sgq75k"]
 
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="1_u7mc5"]
 [ext_resource type="Script" uid="uid://c5klt2xai3lxg" path="res://health.gd" id="2_juek5"]
 [ext_resource type="PackedScene" uid="uid://ts0jojcndxlt" path="res://assets/3DModel/market1.fbx" id="2_y0lg1"]
+[ext_resource type="PackedScene" uid="uid://cc7od088y2k8p" path="res://assets/3DModel/hand.fbx" id="3_byybg"]
 [ext_resource type="PackedScene" uid="uid://b1dsdhs65wt1y" path="res://scenes/steal_ui.tscn" id="3_juek5"]
 [ext_resource type="PackedScene" uid="uid://xpmr6nhjtiga" path="res://TypingScreen.tscn" id="4_juek5"]
 
@@ -59,7 +60,7 @@ size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-0.99993503, -0.004251617, 0.010577334, 0, 0.92784977, 0.37295425, -0.011399835, 0.37293002, -0.92778945, -15.291281, 2.9939609, -4.5317874)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -13.018208, 1.8570094, -1.2334423)
 current = true
 size = 10.0
 far = 97.06
@@ -78,6 +79,9 @@ environment = SubResource("Environment_4xowi")
 transform = Transform3D(0.9292745, 0, 0.36938995, -0.06860239, 0.9826031, 0.17258307, -0.3629637, -0.18571807, 0.913108, 1.045615, 0.65982354, 2.563148)
 light_color = Color(0.83137256, 0.61960787, 1, 1)
 light_energy = 3.474
+
+[node name="hand" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_byybg")]
+transform = Transform3D(5.6365215e-16, -1.2894856e-08, 0.29499996, -0.21025725, 0.20692235, 9.044865e-09, -0.20692238, -0.21025723, -9.190636e-09, -13.191219, 1.285172, -0.549983)
 
 [node name="SuperMarket" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_y0lg1")]
 
@@ -127,23 +131,28 @@ offset_bottom = 652.0
 [node name="Steal_UI" parent="Control" instance=ExtResource("3_juek5")]
 layout_mode = 1
 
-[node name="top_eyelid" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="2"]
-transform = Transform3D(-0.07572753, 0.64094186, -0.7638449, -0.9971286, -0.04867677, 0.058010608, -7.8231096e-08, 0.76604456, 0.6427876, 0, 0, 0)
+[node name="eyeball" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="0"]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+transparency = 0.0
 
 [node name="low_eyelid" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="3"]
-transform = Transform3D(0.054462176, 0.6418333, -0.76490766, 0.9985156, -0.035007633, 0.041720446, -3.3527606e-08, -0.7660448, -0.6427872, 0, 0, 0)
+transform = Transform3D(0.05446225, 0.6418333, -0.76490754, 0.9985155, -0.035007752, 0.04172044, -1.2479718e-07, -0.7660448, -0.6427871, 0, 0, 0)
 
 [node name="AnimationPlayer" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="4"]
 playback_auto_capture = false
 playback_default_blend_time = 0.0
-blend_times = [&"eye/eye_close_0", &"RESET", 100.0, &"eye/eye_close_0", &"eye/RESET", 100.0, &"eye/eye_close_0", &"eye/eye_caught", 1376.471, &"eye/eye_close_0", &"eye/eye_close_0", 1588.235, &"eye/eye_close_0", &"eye/eye_open-25", 1588.236, &"eye/eye_close_0", &"eye/eye_open_50", 1641.176, &"eye/eye_close_0", &"eye/eye_open_75", 1694.118]
+speed_scale = 1.0
+blend_times = [&"eye/eye_caught", &"eye/eye_caught", 10.0, &"eye/eye_caught", &"eye/eye_close_0", 10.0, &"eye/eye_caught", &"eye/eye_open-25", 10.0, &"eye/eye_caught", &"eye/eye_open_50", 10.0, &"eye/eye_caught", &"eye/eye_open_75", 10.0, &"eye/eye_close_0", &"RESET", 100.0, &"eye/eye_close_0", &"eye/RESET", 100.0, &"eye/eye_close_0", &"eye/eye_caught", 1376.471, &"eye/eye_close_0", &"eye/eye_close_0", 1588.235, &"eye/eye_close_0", &"eye/eye_open-25", 1588.236, &"eye/eye_close_0", &"eye/eye_open_50", 1641.176, &"eye/eye_close_0", &"eye/eye_open_75", 1694.118]
 
-[node name="SubViewportContainer2" parent="Control/Steal_UI" index="3"]
-visible = false
+[node name="SubViewportContainer" parent="Control/Steal_UI" index="2"]
+offset_left = -8.0
+offset_top = -28.0
+offset_right = 502.0
+offset_bottom = 484.0
 
-[node name="SubViewport" parent="Control/Steal_UI/SubViewportContainer2" index="0"]
-size = Vector2i(1147, 649)
-render_target_update_mode = 0
+[node name="SubViewport" parent="Control/Steal_UI/SubViewportContainer" index="0"]
+handle_input_locally = false
+render_target_update_mode = 4
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0

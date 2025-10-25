@@ -5,6 +5,18 @@ extends Node
 
 func _init():
 	print("start")
+	
+func _physics_process(delta: float) -> void:
+	if Global.health == 60:
+		anim.play("eye/eye_close_0")
+	if Global.health == 45:
+		anim.play("eye/eye_open-25")
+	if Global.health == 30:
+		anim.play("eye/eye_open_50")
+	if Global.health == 15:
+		anim.play("eye/eye_open_75")
+	if Global.health == 5:
+		anim.play("eye/eye_caught")
 
 
 func _on_timer_timeout():
@@ -28,16 +40,7 @@ func _on_timer_timeout():
 	if Global.health <= 5:
 		Global.nohealth = true
 		Global.quathealth = false
-	if Global.fullhealth == true:
-		anim.play("eye/eye_close_0")
-	if Global.threequathealth == true:
-		anim.play("eye/eye_open-25")
-	if Global.halfhealth == true:
-		anim.play("eye/eye_open_50")
-	if Global.quathealth == true:
-		anim.play("eye/eye_open_75")
-	if Global.nohealth == true:
-		anim.play("eye/eye_caught")
+
 
 	
 	

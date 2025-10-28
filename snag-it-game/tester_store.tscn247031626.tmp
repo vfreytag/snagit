@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://3tmbc8sgq75k"]
+[gd_scene load_steps=15 format=3 uid="uid://3tmbc8sgq75k"]
 
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="1_u7mc5"]
 [ext_resource type="Script" uid="uid://c5klt2xai3lxg" path="res://health.gd" id="2_juek5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1dsdhs65wt1y" path="res://scenes/steal_ui.tscn" id="3_juek5"]
 [ext_resource type="PackedScene" uid="uid://xpmr6nhjtiga" path="res://TypingScreen.tscn" id="4_juek5"]
 [ext_resource type="Script" uid="uid://cf3jly0fb5hb5" path="res://assets/scripts/typing_screen.gd" id="6_5acwn"]
+[ext_resource type="Script" uid="uid://s2v4hudeqtin" path="res://assets/scripts/label.gd" id="7_plgrn"]
 
 [sub_resource type="GDScript" id="GDScript_y0lg1"]
 script/source = "extends Node3D
@@ -130,6 +131,9 @@ offset_bottom = 652.0
 [node name="TypingScreen" parent="Control" instance=ExtResource("4_juek5")]
 script = ExtResource("6_5acwn")
 
+[node name="Label" parent="Control/TypingScreen" index="2"]
+script = ExtResource("7_plgrn")
+
 [node name="Steal_UI" parent="Control" instance=ExtResource("3_juek5")]
 layout_mode = 1
 
@@ -141,7 +145,7 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 transparency = 0.0
 
 [node name="low_eyelid" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="3"]
-transform = Transform3D(0.05446224, 0.6418333, -0.7649074, 0.99851537, -0.035007752, 0.04172043, -1.2665981e-07, -0.7660448, -0.64278704, 0, 0, 0)
+transform = Transform3D(0.054462243, 0.6418333, -0.7649075, 0.9985154, -0.035007752, 0.041720435, -1.2665983e-07, -0.7660448, -0.6427871, 0, 0, 0)
 
 [node name="AnimationPlayer" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="4"]
 playback_auto_capture = false

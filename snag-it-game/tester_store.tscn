@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://3tmbc8sgq75k"]
+[gd_scene load_steps=15 format=3 uid="uid://3tmbc8sgq75k"]
 
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="1_u7mc5"]
 [ext_resource type="Script" uid="uid://c5klt2xai3lxg" path="res://health.gd" id="2_juek5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1dsdhs65wt1y" path="res://scenes/steal_ui.tscn" id="3_juek5"]
 [ext_resource type="PackedScene" uid="uid://xpmr6nhjtiga" path="res://TypingScreen.tscn" id="4_juek5"]
 [ext_resource type="Script" uid="uid://cf3jly0fb5hb5" path="res://assets/scripts/typing_screen.gd" id="6_5acwn"]
+[ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="7_plgrn"]
 
 [sub_resource type="GDScript" id="GDScript_y0lg1"]
 script/source = "extends Node3D
@@ -129,6 +130,30 @@ offset_bottom = 652.0
 
 [node name="TypingScreen" parent="Control" instance=ExtResource("4_juek5")]
 script = ExtResource("6_5acwn")
+
+[node name="Label2" type="Label" parent="Control/TypingScreen"]
+offset_left = 342.0
+offset_right = 757.0
+offset_bottom = 73.0
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("7_plgrn")
+theme_override_font_sizes/font_size = 27
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/TypingScreen"]
+offset_left = 323.0
+offset_right = 523.0
+offset_bottom = 73.0
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("7_plgrn")
+theme_override_font_sizes/font_size = 27
+text = "Highscore:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Steal_UI" parent="Control" instance=ExtResource("3_juek5")]
 layout_mode = 1

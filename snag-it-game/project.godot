@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Snag_It_Game"
-run/main_scene="uid://3tmbc8sgq75k"
+run/main_scene="uid://cg364t45s5q51"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,13 @@ Global="*res://Global.gd"
 
 animation_library={
 &"blender/meshes/export_geometry_nodes_instances": true
+}
+
+[input]
+
+back={
+"deadzone": 0.2,
+"events": []
 }
 
 [rendering]

@@ -6,6 +6,7 @@ var input_key = ""
 var test_store_words = {
 	"Bees": "^B(?:e(?:e(?:s)?)?)?$",
 	"Lollypop": "^L(o(l(l(y(p(o(p)?)?)?)?)?)?)?$",
+	"Clearly you do not own an airfryer": "^C(l(e(a(r(l(y( (y(o(u( (d(o( (n(o(t( (o(w(n( (a(n( (a(i(r(f(r(y(e(r)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?$",
 	"Chinchilla": "^C(h(i(n(c(h(i(l(l(a)?)?)?)?)?)?)?)?)?$"
 }
 
@@ -19,6 +20,7 @@ func pick_random(test_store_words):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.health = 60
 	pick_random(test_store_words)
 	print(word_key)
 	$Label.set_text(word_key)
@@ -36,3 +38,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		Global.health -=1
 		if $TextEdit.text == word_key:
 			print("win")
+			_ready()
+			
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://scenes/start.tscn")

@@ -11,7 +11,8 @@ var test_store_words = {
 	"Bunny": "^B(u(n(n(y)?)?)?)?$",
 	"Oatmilk": "O(a(t(m(i(l(k)?)?)?)?)?)?$",
 	"Biscuits": "B(i(s(c(u(i(t(s)?)?)?)?)?)?)$",
-	"Catfood": "C(a(t(f(o(o(d)?)?)?)?)?)?$"
+	"Catfood": "C(a(t(f(o(o(d)?)?)?)?)?)?$",
+	"Alien": "A(l(i(e(n)?)?)?)?$"
 }
 
 func pick_random(test_store_words):

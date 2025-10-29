@@ -27,6 +27,10 @@ animation_library={
 
 [input]
 
+ui_text_newline={
+"deadzone": 0.5,
+"events": []
+}
 back={
 "deadzone": 0.2,
 "events": []

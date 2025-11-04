@@ -23,8 +23,11 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		$BUNY/AnimationPlayer.play("Armature|Walk")
+		#$".".look_at(direction) #can't get it to work right... so whatever im stopping for today
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		$BUNY/AnimationPlayer.play("Armature|Grab") #for some reason this one i fucked up the naming of... struggling to  actually edit the blender file now??? something broke i feel
 
 	move_and_slide()

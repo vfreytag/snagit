@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ts0jojcndxlt"
-path="res://.godot/imported/market1.fbx-1dd03dc3426c6e71dd267eee8be7616d.scn"
+uid="uid://cwf4la5olcll2"
+path="res://.godot/imported/back_button.fbx-29ef5c215a7972ff89f4fa4cf83274a3.scn"
 
 [deps]
 
-source_file="res://assets/3DModel/market1.fbx"
-dest_files=["res://.godot/imported/market1.fbx-1dd03dc3426c6e71dd267eee8be7616d.scn"]
+source_file="res://assets/3DModel/back/back_button.fbx"
+dest_files=["res://.godot/imported/back_button.fbx-29ef5c215a7972ff89f4fa4cf83274a3.scn"]
 
 [params]
 
@@ -37,7 +37,16 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Camera": {
+"import/skip_import": true
+},
+"PATH:Light": {
+"import/skip_import": true
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

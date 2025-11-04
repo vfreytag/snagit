@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://b1dsdhs65wt1y"]
 
-[ext_resource type="PackedScene" uid="uid://r83u5t4wcdo4" path="res://eye_for_ui.tscn" id="1_gd1u3"]
-[ext_resource type="Texture2D" uid="uid://bnfu4gy4r7o1v" path="res://assets/3DModel/eye_eye_lid.png" id="1_un3id"]
+[ext_resource type="PackedScene" uid="uid://r83u5t4wcdo4" path="res://assets/eye_for_ui.tscn" id="1_gd1u3"]
+[ext_resource type="Texture2D" uid="uid://bnfu4gy4r7o1v" path="res://assets/3DModel/eye/eye_eye_lid.png" id="1_un3id"]
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="2_jtt6j"]
-[ext_resource type="PackedScene" uid="uid://bwvcx6v0tixkv" path="res://back_button_forUI.tscn" id="4_jtt6j"]
+[ext_resource type="PackedScene" uid="uid://bwvcx6v0tixkv" path="res://assets/back_button_forUI.tscn" id="4_jtt6j"]
 
 [sub_resource type="Environment" id="Environment_yil47"]
 background_color = Color(1, 1, 1, 1)

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cwf4la5olcll2"
-path="res://.godot/imported/back_button.fbx-33e6ebe75c9b0b38e55b2d8b4784cc45.scn"
+uid="uid://4b1blvr8ifb0"
+path="res://.godot/imported/eye.glb-98ded017d8d55329878aa45b721f6cbe.scn"
 
 [deps]
 
-source_file="res://assets/3DModel/back_button.fbx"
-dest_files=["res://.godot/imported/back_button.fbx-33e6ebe75c9b0b38e55b2d8b4784cc45.scn"]
+source_file="res://assets/3DModel/eye/eye.glb"
+dest_files=["res://.godot/imported/eye.glb-98ded017d8d55329878aa45b721f6cbe.scn"]
 
 [params]
 
@@ -30,24 +30,13 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:Camera": {
-"import/skip_import": true
-},
-"PATH:Light": {
-"import/skip_import": true
-}
-}
-}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+_subresources={}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://xpmr6nhjtiga"]
 
-[ext_resource type="Texture2D" uid="uid://c075s32v0w1vf" path="res://assets/3DModel/nerd-nerdy.png" id="1_vshg3"]
+[ext_resource type="Texture2D" uid="uid://c075s32v0w1vf" path="res://assets/image/nerd-nerdy.png" id="1_vshg3"]
 [ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="2_k3x6c"]
-[ext_resource type="Script" uid="uid://e8ilevclmhh" path="res://write.gd" id="3_k3x6c"]
+[ext_resource type="Script" uid="uid://e8ilevclmhh" path="res://scripts/write.gd" id="3_k3x6c"]
 
 [node name="TypingScreen" type="Node2D"]
 

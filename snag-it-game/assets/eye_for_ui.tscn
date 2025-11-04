@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://r83u5t4wcdo4"]
 
-[ext_resource type="PackedScene" uid="uid://vvfmj7noe27m" path="res://assets/3DModel/eye.tscn" id="1_2dxqr"]
-[ext_resource type="AnimationLibrary" uid="uid://bc3usmayrflx8" path="res://assets/3DModel/eye_anim/eye.res" id="2_mrcaq"]
-[ext_resource type="Script" uid="uid://cytd1o8og3ua7" path="res://Eyeball.gd" id="2_wxyli"]
+[ext_resource type="PackedScene" uid="uid://vvfmj7noe27m" path="res://assets/3DModel/eye/eye.tscn" id="1_2bosa"]
+[ext_resource type="Script" uid="uid://cytd1o8og3ua7" path="res://scripts/Eyeball.gd" id="2_rppnp"]
+[ext_resource type="AnimationLibrary" uid="uid://bc3usmayrflx8" path="res://assets/3DModel/eye/eye_anim/eye.res" id="3_l7eib"]
 
 [sub_resource type="Animation" id="Animation_4ioec"]
 length = 0.001
@@ -19,9 +19,9 @@ _data = {
 &"RESET": SubResource("Animation_4ioec")
 }
 
-[node name="eye" instance=ExtResource("1_2dxqr")]
+[node name="eye" instance=ExtResource("1_2bosa")]
 transform = Transform3D(0.955784, 0.1738505, -0.2371773, -0.17895679, 0.98385704, 0, 0.23334849, 0.04244448, 0.97146636, 0, 0, 0)
-script = ExtResource("2_wxyli")
+script = ExtResource("2_rppnp")
 
 [node name="eyeball" parent="." index="0"]
 transform = Transform3D(0.8390797, 0, 0.32549146, 0, 0.89999986, 0, -0.32549125, 0, 0.8390802, 0, 0, 0)
@@ -39,7 +39,7 @@ transform = Transform3D(0.9824112, 0.12002747, -0.14304337, 0.18672973, -0.63148
 [node name="AnimationPlayer" parent="." index="4"]
 libraries = {
 &"": SubResource("AnimationLibrary_auk30"),
-&"eye": ExtResource("2_mrcaq")
+&"eye": ExtResource("3_l7eib")
 }
 playback_default_blend_time = 1.0
 blend_times = [&"eye/eye_caught", &"eye/eye_caught", 10.0, &"eye/eye_caught", &"eye/eye_close_0", 10.0, &"eye/eye_caught", &"eye/eye_open-25", 10.0, &"eye/eye_caught", &"eye/eye_open_50", 10.0, &"eye/eye_caught", &"eye/eye_open_75", 10.0]

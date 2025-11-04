@@ -13,11 +13,11 @@ config_version=5
 config/name="Snag_It_Game"
 run/main_scene="uid://cg364t45s5q51"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/image/icon.svg"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://scripts/Global.gd"
 
 [importer_defaults]
 

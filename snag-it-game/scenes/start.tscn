@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cg364t45s5q51"]
 
-[ext_resource type="Script" uid="uid://dehxmmx75v7w2" path="res://assets/scripts/start.gd" id="1_jaeev"]
+[ext_resource type="Script" uid="uid://dehxmmx75v7w2" path="res://scripts/start.gd" id="1_jaeev"]
 [ext_resource type="Texture2D" uid="uid://r0r6f7t46rnt" path="res://assets/image/snagitmenu.jpg" id="2_u80x2"]
 [ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="3_bodal"]
 

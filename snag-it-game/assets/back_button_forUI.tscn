@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwvcx6v0tixkv"]
 
-[ext_resource type="PackedScene" uid="uid://cwf4la5olcll2" path="res://assets/3DModel/back_button.fbx" id="2_j3kqf"]
+[ext_resource type="PackedScene" uid="uid://cwf4la5olcll2" path="res://assets/3DModel/back/back_button.fbx" id="2_j3kqf"]
 
 [sub_resource type="Animation" id="Animation_fdnhb"]
 length = 0.001

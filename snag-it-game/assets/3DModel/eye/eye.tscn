@@ -1,9 +1,9 @@
 [gd_scene load_steps=27 format=4 uid="uid://vvfmj7noe27m"]
 
-[ext_resource type="Texture2D" uid="uid://cp8ssmywed50t" path="res://assets/3DModel/eye_eye_uv.png" id="1_gf3x6"]
-[ext_resource type="Texture2D" uid="uid://ced6mc8ec1tjt" path="res://assets/3DModel/eye_eye_back.png" id="2_t2nlv"]
-[ext_resource type="Texture2D" uid="uid://bnfu4gy4r7o1v" path="res://assets/3DModel/eye_eye_lid.png" id="3_7ghy5"]
-[ext_resource type="AnimationLibrary" uid="uid://bc3usmayrflx8" path="res://assets/3DModel/eye_anim/eye.res" id="4_t2nlv"]
+[ext_resource type="Texture2D" uid="uid://cp8ssmywed50t" path="res://assets/3DModel/eye/eye_eye_uv.png" id="1_gf3x6"]
+[ext_resource type="Texture2D" uid="uid://ced6mc8ec1tjt" path="res://assets/3DModel/eye/eye_eye_back.png" id="2_t2nlv"]
+[ext_resource type="Texture2D" uid="uid://bnfu4gy4r7o1v" path="res://assets/3DModel/eye/eye_eye_lid.png" id="3_7ghy5"]
+[ext_resource type="AnimationLibrary" uid="uid://bc3usmayrflx8" path="res://assets/3DModel/eye/eye_anim/eye.res" id="4_t2nlv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xipdf"]
 resource_name = "Material"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://stq6w0lnj2qs"]
 
-[ext_resource type="Script" uid="uid://coikaljqxcduv" path="res://assets/scripts/death.gd" id="1_tjai8"]
-[ext_resource type="Texture2D" uid="uid://c075s32v0w1vf" path="res://assets/3DModel/nerd-nerdy.png" id="1_w8wr1"]
+[ext_resource type="Script" uid="uid://coikaljqxcduv" path="res://scripts/death.gd" id="1_tjai8"]
+[ext_resource type="Texture2D" uid="uid://c075s32v0w1vf" path="res://assets/image/nerd-nerdy.png" id="1_w8wr1"]
 [ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="2_tjai8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q1r8t"]

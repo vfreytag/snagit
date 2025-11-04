@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://3tmbc8sgq75k"]
 
-[ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="1_u7mc5"]
-[ext_resource type="Script" uid="uid://c5klt2xai3lxg" path="res://health.gd" id="2_juek5"]
-[ext_resource type="PackedScene" uid="uid://ts0jojcndxlt" path="res://assets/3DModel/market1.fbx" id="2_y0lg1"]
-[ext_resource type="PackedScene" uid="uid://cc7od088y2k8p" path="res://assets/3DModel/hand.fbx" id="3_byybg"]
-[ext_resource type="PackedScene" uid="uid://b1dsdhs65wt1y" path="res://scenes/steal_ui.tscn" id="3_juek5"]
-[ext_resource type="PackedScene" uid="uid://xpmr6nhjtiga" path="res://TypingScreen.tscn" id="4_juek5"]
-[ext_resource type="Script" uid="uid://cf3jly0fb5hb5" path="res://assets/scripts/typing_screen.gd" id="6_5acwn"]
-[ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="7_plgrn"]
+[ext_resource type="Script" uid="uid://c5klt2xai3lxg" path="res://scripts/health.gd" id="1_bsrfv"]
+[ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="2_r5103"]
+[ext_resource type="PackedScene" uid="uid://cc7od088y2k8p" path="res://assets/3DModel/hand.fbx" id="3_1hmnf"]
+[ext_resource type="PackedScene" uid="uid://ts0jojcndxlt" path="res://assets/3DModel/area/market1.fbx" id="4_5f8kp"]
+[ext_resource type="PackedScene" uid="uid://xpmr6nhjtiga" path="res://scenes/TypingScreen.tscn" id="5_hgm0n"]
+[ext_resource type="Script" uid="uid://cf3jly0fb5hb5" path="res://scripts/typing_screen.gd" id="6_fkvhv"]
+[ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="7_bkpo8"]
+[ext_resource type="PackedScene" uid="uid://b1dsdhs65wt1y" path="res://scenes/steal_ui.tscn" id="8_wxrva"]
 
 [sub_resource type="GDScript" id="GDScript_y0lg1"]
 script/source = "extends Node3D
@@ -17,11 +17,11 @@ var health: int = 60
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a0tk4"]
 render_priority = 0
-shader = ExtResource("1_u7mc5")
+shader = ExtResource("2_r5103")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_noarx"]
 render_priority = 0
-shader = ExtResource("1_u7mc5")
+shader = ExtResource("2_r5103")
 
 [sub_resource type="QuadMesh" id="QuadMesh_r3fl7"]
 material = SubResource("ShaderMaterial_noarx")
@@ -43,7 +43,7 @@ ambient_light_color = Color(0.8481287, 0.7463963, 0.5298973, 1)
 script = SubResource("GDScript_y0lg1")
 
 [node name="Health" type="Node" parent="."]
-script = ExtResource("2_juek5")
+script = ExtResource("1_bsrfv")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
@@ -82,10 +82,10 @@ transform = Transform3D(0.9292745, 0, 0.36938995, -0.06860239, 0.9826031, 0.1725
 light_color = Color(0.83137256, 0.61960787, 1, 1)
 light_energy = 3.474
 
-[node name="hand" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_byybg")]
+[node name="hand" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_1hmnf")]
 transform = Transform3D(5.6365215e-16, -1.2894856e-08, 0.29499996, -0.21025725, 0.20692235, 9.044865e-09, -0.20692238, -0.21025723, -9.190636e-09, -13.191219, 1.285172, -0.549983)
 
-[node name="SuperMarket" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_y0lg1")]
+[node name="SuperMarket" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_5f8kp")]
 
 [node name="lights" type="Node3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(0.99303955, -0.11757489, -0.006972732, 0.0071204593, 0.00083644706, 0.9999743, -0.117566034, -0.99306375, 0.0016678122, 1.045615, 3.7993608, -1.8990254)
@@ -128,8 +128,8 @@ offset_top = 1.0
 offset_right = 1150.0
 offset_bottom = 652.0
 
-[node name="TypingScreen" parent="Control" instance=ExtResource("4_juek5")]
-script = ExtResource("6_5acwn")
+[node name="TypingScreen" parent="Control" instance=ExtResource("5_hgm0n")]
+script = ExtResource("6_fkvhv")
 
 [node name="Label2" type="Label" parent="Control/TypingScreen"]
 offset_left = 342.0
@@ -137,7 +137,7 @@ offset_right = 757.0
 offset_bottom = 73.0
 size_flags_horizontal = 4
 theme_override_constants/outline_size = 17
-theme_override_fonts/font = ExtResource("7_plgrn")
+theme_override_fonts/font = ExtResource("7_bkpo8")
 theme_override_font_sizes/font_size = 27
 text = "0"
 horizontal_alignment = 1
@@ -149,13 +149,13 @@ offset_right = 523.0
 offset_bottom = 73.0
 size_flags_horizontal = 4
 theme_override_constants/outline_size = 17
-theme_override_fonts/font = ExtResource("7_plgrn")
+theme_override_fonts/font = ExtResource("7_bkpo8")
 theme_override_font_sizes/font_size = 27
 text = "Highscore:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Steal_UI" parent="Control" instance=ExtResource("3_juek5")]
+[node name="Steal_UI" parent="Control" instance=ExtResource("8_wxrva")]
 layout_mode = 1
 
 [node name="SubViewport" parent="Control/Steal_UI/Eye_Container" index="0"]

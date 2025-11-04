@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ced6mc8ec1tjt"
-path.s3tc="res://.godot/imported/eye_eye_back.png-27a901100083fb1891c873fbf9b175f0.s3tc.ctex"
+uid="uid://xf0nesl1wqmd"
+path.s3tc="res://.godot/imported/market1_0.png-b8e9f9e9b704202dc3261f309f9b1dba.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "69e8dc2d1027cc0ffcccb7c9e9c70793"
+"md5": "fc7cb2524cff2344540f25dcce9f9147"
 }
 
 [deps]
 
-source_file="res://assets/3DModel/eye_eye_back.png"
-dest_files=["res://.godot/imported/eye_eye_back.png-27a901100083fb1891c873fbf9b175f0.s3tc.ctex"]
+source_file="res://assets/3DModel/area/market1_0.png"
+dest_files=["res://.godot/imported/market1_0.png-b8e9f9e9b704202dc3261f309f9b1dba.s3tc.ctex"]
 
 [params]
 

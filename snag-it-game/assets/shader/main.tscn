@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dhkddh3qgvnij"]
 
-[ext_resource type="Texture2D" uid="uid://2nmjl5dma7ad" path="res://icon.svg" id="4_iowfd"]
+[ext_resource type="Texture2D" uid="uid://2nmjl5dma7ad" path="res://assets/image/icon.svg" id="4_iowfd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_andoa"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

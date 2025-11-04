@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c075s32v0w1vf"
-path.s3tc="res://.godot/imported/nerd-nerdy.png-0207aa394b0b512b575853b8de2cdcc8.s3tc.ctex"
+uid="uid://dwek1tnvxog24"
+path.s3tc="res://.godot/imported/floor_tiles_06_basecolor_1k.png-b65779f8641f4852536d260b5fd8a9e1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/image/nerd-nerdy.png"
-dest_files=["res://.godot/imported/nerd-nerdy.png-0207aa394b0b512b575853b8de2cdcc8.s3tc.ctex"]
+source_file="res://assets/image/Textures/floor_tiles_06_basecolor_1k.png"
+dest_files=["res://.godot/imported/floor_tiles_06_basecolor_1k.png-b65779f8641f4852536d260b5fd8a9e1.s3tc.ctex"]
 
 [params]
 

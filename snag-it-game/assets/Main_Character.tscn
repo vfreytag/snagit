@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://b870divsiavhq"]
+
+[ext_resource type="PackedScene" uid="uid://cabsyyddx2lj1" path="res://assets/3DModel/buny/BUNY.blend" id="1_c3gk4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="BUNY" parent="." instance=ExtResource("1_c3gk4")]
+
+[node name="Skeleton3D" parent="BUNY/Armature" index="0"]
+bones/0/position = Vector3(-0.08438247, -0.5003246, 0.05133603)
+bones/0/rotation = Quaternion(0.016296938, -0.007083193, -0.033594124, 0.99927765)
+bones/1/position = Vector3(-0.044386566, 0.08779659, -0.29361787)
+bones/1/rotation = Quaternion(0.9685891, 0.21561663, 0.103175856, -0.06855312)
+bones/2/rotation = Quaternion(-0.0114872465, -0.20667145, -0.053319383, 0.97688895)
+bones/3/position = Vector3(0.019158646, 0.030492939, 0.30048585)
+bones/3/rotation = Quaternion(0.1157044, 0.02121967, 0.99054, 0.07065944)
+bones/4/rotation = Quaternion(-0.10527857, -0.15267722, -0.27405652, 0.94366264)
+bones/5/rotation = Quaternion(0.002310427, -0.0640827, 0.01345685, 0.99785125)
+bones/6/position = Vector3(-0.15130356, 0.56681556, -0.37559697)
+bones/6/rotation = Quaternion(-0.95961237, 0.20227046, 0.0023845588, 0.19551249)
+bones/7/rotation = Quaternion(-0.18177691, -0.05202214, -0.14375633, 0.9713831)
+bones/8/position = Vector3(-0.070737064, 0.4670417, 0.42769283)
+bones/8/rotation = Quaternion(0.9551557, 0.18649429, -0.004210395, 0.22995625)
+bones/9/rotation = Quaternion(0.27792203, 0.11044747, -0.0009043297, 0.9542327)
+bones/10/rotation = Quaternion(0.016819706, -0.039720062, -0.0121859545, 0.99899495)
+
+[editable path="BUNY"]

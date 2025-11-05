@@ -16,8 +16,9 @@ background_mode = 1
 background_color = Color(0.849375, 0.5447849, 0.84600836, 1)
 background_energy_multiplier = 1.81
 ambient_light_color = Color(0.95686275, 0.8862745, 0.36078432, 1)
-ambient_light_energy = 2.4
+ambient_light_energy = 2.28
 volumetric_fog_enabled = true
+volumetric_fog_length = 41.9
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_youpx"]
 resource_name = "Main material"
@@ -616,17 +617,18 @@ shadow_mesh = SubResource("ArrayMesh_j3udb")
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6pbjl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukl5u"]
-albedo_color = Color(0.76240367, 0.76240367, 0.76240367, 1)
+albedo_color = Color(0.65012825, 0.6501283, 0.65012825, 1)
 albedo_texture = ExtResource("1_e2gem")
-metallic_specular = 0.08
+metallic_specular = 0.48
 normal_enabled = true
 normal_scale = -2.05
 normal_texture = ExtResource("2_hcjad")
+uv1_scale = Vector3(9.56, 9.56, 9.56)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cq6pf"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6pbjl"]
-size = Vector3(1, 1.9055176, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cq6pf"]
+height = 2.6107178
 
 [node name="WalkerStore" type="Node2D"]
 
@@ -649,13 +651,13 @@ size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.7071068, -0.18301271, 0.6830127, 0, 0.9659259, 0.25881907, -0.7071068, -0.18301271, 0.6830127, 9.01009, 5.8228703, 10.649486)
+transform = Transform3D(0.9063078, -0.10938167, 0.40821794, 0, 0.9659259, 0.25881907, -0.4226183, -0.23456973, 0.8754261, 2.9601321, 3.903646, 7.8837056)
 environment = SubResource("Environment_cq6pf")
 projection = 1
 current = true
 fov = 57.0
 size = 6.946
-near = 0.002
+near = 0.001
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(-4.3711384e-06, 99.99999, 4.371139e-06, 0, -4.3711384e-06, 100, 99.99999, 4.3711384e-06, 1.9106854e-13, -7.093463, 0.031935215, 8.719682)
@@ -726,20 +728,24 @@ transform = Transform3D(1.0000001, 3.5527137e-15, 0, -3.5527137e-15, 1.0000001, 
 mesh = SubResource("ArrayMesh_k2bl2")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+transform = Transform3D(-4.3711393e-10, 0, 0.010000002, 0.010000002, -4.3711396e-10, 4.3711393e-10, 4.371139e-10, 0.010000001, 1.9106856e-17, -0.087196834, 0.07093463, -0.00031934906)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_6pbjl")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D/CollisionShape3D"]
+transform = Transform3D(37.028603, -7.17e-43, -1.0842022e-19, -8.131516e-20, 10, 6.4623485e-27, 8.131516e-20, -1.6155871e-27, 41.988556, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ukl5u")
 mesh = SubResource("PlaneMesh_cq6pf")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.32210848, -0.9454047, 0.049559567, 0.17537765, -0.008145548, 0.9844676, -0.93031657, 0.32579702, 0.1684266, 0, 15.377403, 4.249221)
-light_indirect_energy = 0.995
+light_color = Color(1, 0.84705883, 1, 1)
+light_indirect_energy = 1.666
+light_volumetric_fog_energy = 2.902
+light_angular_distance = 27.06
 light_specular = 1.025
 shadow_enabled = true
 
@@ -754,13 +760,13 @@ transform = Transform3D(0.59, 0, 0, 0, 0.59, 0, 0, 0, 0.59, 0, -0.89, 0)
 transform = Transform3D(-11.529951, 99.33308, 4.341987e-06, 0, -4.371139e-06, 100, 99.33307, 11.529951, 5.039902e-07, 0.13267869, 1.3285813, 0)
 
 [node name="Skeleton3D" parent="CharacterBody3D/BUNY/Armature" index="0"]
-bones/1/position = Vector3(-0.0004237981, 0.0005809298, -0.0029266188)
+bones/1/position = Vector3(-0.0004237981, 0.00058092986, -0.0029266186)
 bones/1/rotation = Quaternion(0.9879123, 0.05508156, 0.1384174, -0.042849723)
 bones/1/scale = Vector3(1.0000035, 1.0000004, 1.0000008)
 bones/2/position = Vector3(9.648104e-11, 0.0045358804, 3.5845698e-11)
 bones/2/rotation = Quaternion(-0.054118413, -0.19789529, 0.046755385, 0.97761065)
 bones/2/scale = Vector3(0.9999999, 1.0000002, 1.0000001)
-bones/4/position = Vector3(0.00019158656, 0.00030492895, 0.0030048583)
+bones/4/position = Vector3(0.00019158667, 0.00030492866, 0.0030048583)
 bones/4/rotation = Quaternion(0.11624766, 0.037024308, 0.9891518, -0.08182028)
 bones/4/scale = Vector3(0.9999974, 0.99999964, 0.9999999)
 bones/5/position = Vector3(-2.4155977e-10, 0.004221458, 1.2441119e-10)
@@ -768,13 +774,14 @@ bones/5/rotation = Quaternion(-0.018628089, -0.15309626, -0.052591216, 0.986635)
 bones/5/scale = Vector3(1, 1.0000001, 1.0000002)
 bones/7/position = Vector3(4.134317e-11, 0.0064456533, 7.3251204e-11)
 bones/7/rotation = Quaternion(-0.0246979, 0.08333952, 0.10070987, 0.9911116)
-bones/8/position = Vector3(-0.0005674971, 0.0057097157, -0.003770588)
+bones/7/scale = Vector3(0.9999999, 1, 0.99999994)
+bones/8/position = Vector3(-0.0005674971, 0.005709716, -0.003770588)
 bones/8/rotation = Quaternion(-0.9786797, 0.0099565815, 0.039050523, 0.20140003)
 bones/8/scale = Vector3(1.0000001, 1, 1.0000001)
 bones/9/position = Vector3(6.468236e-11, 0.005289103, -1.191798e-09)
 bones/9/rotation = Quaternion(-0.035778567, 0.28793377, -0.19374228, 0.9371649)
 bones/9/scale = Vector3(0.99999994, 1, 0.9999998)
-bones/11/position = Vector3(-0.000589269, 0.004675607, 0.004275103)
+bones/11/position = Vector3(-0.000589269, 0.0046756077, 0.004275103)
 bones/11/rotation = Quaternion(0.96094084, -0.11798528, 0.12587659, 0.2163959)
 bones/11/scale = Vector3(1.0000001, 1.0000001, 0.99999994)
 bones/12/position = Vector3(4.6232182e-10, 0.0053603537, -4.5948914e-10)
@@ -784,26 +791,17 @@ bones/14/position = Vector3(-1.15558715e-10, 0.004443517, -1.7569227e-10)
 bones/14/rotation = Quaternion(0.01579706, 0.008541072, -0.002588399, 0.99983543)
 bones/14/scale = Vector3(1.0000001, 1.0000001, 1)
 
+[node name="Cube" parent="CharacterBody3D/BUNY/Armature/Skeleton3D" index="0"]
+gi_mode = 2
+
+[node name="Cube_001" parent="CharacterBody3D/BUNY/Armature/Skeleton3D" index="1"]
+gi_mode = 2
+
 [node name="AnimationPlayer" parent="CharacterBody3D/BUNY" index="1"]
 speed_scale = 1.843
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07336426, 0)
-shape = SubResource("BoxShape3D_6pbjl")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2791896, 0.0033664703, 4.837086)
-visible = false
-light_color = Color(3.060823, 4.3389044, 5.3174357, 1)
-light_energy = 0.27
-light_indirect_energy = 6.463
-light_volumetric_fog_energy = 1.665
-light_size = 79.04
-light_specular = 2.342
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 929.05
-distance_fade_shadow = 51.2
-distance_fade_length = 549.78
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3270874, 0)
+shape = SubResource("CapsuleShape3D_cq6pf")
 
 [editable path="CharacterBody3D/BUNY"]

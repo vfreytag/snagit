@@ -166,7 +166,7 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 transparency = 0.0
 
 [node name="low_eyelid" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="3"]
-transform = Transform3D(0.05446224, 0.6418333, -0.7649074, 0.99851537, -0.035007752, 0.04172043, -1.2665981e-07, -0.7660448, -0.64278704, 0, 0, 0)
+transform = Transform3D(0.054462235, 0.6418333, -0.76490736, 0.9985153, -0.035007752, 0.041720428, -1.2665981e-07, -0.7660448, -0.642787, 0, 0, 0)
 
 [node name="AnimationPlayer" parent="Control/Steal_UI/Eye_Container/SubViewport/eye" index="4"]
 playback_auto_capture = false

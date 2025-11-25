@@ -1,11 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://bnfwctp8bumc2"]
+[gd_scene load_steps=21 format=3 uid="uid://bnfwctp8bumc2"]
 
 [ext_resource type="Texture2D" uid="uid://dwek1tnvxog24" path="res://assets/image/Textures/floor_tiles_06_basecolor_1k.png" id="1_e2gem"]
 [ext_resource type="Texture2D" uid="uid://t3ka7xk7qr6e" path="res://assets/image/Textures/floor_tiles_06_normal_dx_1k.png" id="2_hcjad"]
 [ext_resource type="Script" uid="uid://c161qcgmfvucw" path="res://scenes/character_body_3d.gd" id="3_hcjad"]
+[ext_resource type="Script" uid="uid://bh3upq4hd7xxr" path="res://scenes/interaction_hitbox.gd" id="4_0flql"]
 [ext_resource type="PackedScene" uid="uid://b78xs1wm2c73n" path="res://assets/3DModel/buny/BUNY.fbx" id="4_6pbjl"]
 [ext_resource type="Script" uid="uid://cuf4qdka1sq2i" path="res://scenes/h_box_container.gd" id="6_0flql"]
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="6_cq6pf"]
+[ext_resource type="Texture2D" uid="uid://byp40vqvegqeh" path="res://assets/image/paper.jpg" id="8_dumhp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0flql"]
 render_priority = 0
@@ -34,6 +36,7 @@ uv1_scale = Vector3(9.56, 9.56, 9.56)
 [sub_resource type="PlaneMesh" id="PlaneMesh_cq6pf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cq6pf"]
+size = Vector3(2, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cq6pf"]
 transparency = 1
@@ -42,6 +45,7 @@ albedo_color = Color(0.45840502, 0.45840508, 0.45840502, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0flql"]
 material = SubResource("StandardMaterial3D_cq6pf")
+size = Vector3(2, 2, 2)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ukl5u"]
 
@@ -51,7 +55,6 @@ material = SubResource("StandardMaterial3D_cq6pf")
 height = 2.6107178
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cq6pf"]
-load_path = "res://.godot/imported/paper.jpg-13973dfde6ba52aba5bcc2435ec19358.ctex"
 
 [node name="WalkerStore" type="Node2D"]
 
@@ -98,8 +101,6 @@ transform = Transform3D(-4.3711384e-06, 99.99999, 4.371139e-06, 0, -4.3711384e-0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/Floor"]
 transform = Transform3D(-4.3711393e-10, 0, 0.010000002, 0.010000002, -4.3711396e-10, 4.3711393e-10, 4.371139e-10, 0.010000001, 1.9106856e-17, -0.087196834, 0.07093463, -0.00031934906)
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Floor/StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_6pbjl")
@@ -110,17 +111,19 @@ material_override = SubResource("StandardMaterial3D_ukl5u")
 mesh = SubResource("PlaneMesh_cq6pf")
 skeleton = NodePath("../../../../..")
 
-[node name="RigidBody3D2" type="RigidBody3D" parent="Environment"]
-transform = Transform3D(1.72, 0, 0, 0, 1.72, 0, 0, 0, 1.72, 0, 0.5077543, 1.9158211)
-collision_layer = 6
-collision_mask = 6
+[node name="InteractionHitbox" type="Node" parent="Environment"]
+script = ExtResource("4_0flql")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/RigidBody3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/InteractionHitbox"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/InteractionHitbox/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.088012695, 0.1317749, -0.017730713)
 shape = SubResource("BoxShape3D_cq6pf")
 debug_color = Color(0.9551018, 8.663535e-07, 0.54751056, 0.41960785)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/RigidBody3D2/CollisionShape3D2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/InteractionHitbox/StaticBody3D/CollisionShape3D2"]
 mesh = SubResource("BoxMesh_0flql")
 skeleton = NodePath("../..")
 
@@ -140,7 +143,7 @@ skeleton = NodePath("../..")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2839966, 0)
-collision_mask = 5
+collision_layer = 5
 script = ExtResource("3_hcjad")
 
 [node name="BUNY" parent="CharacterBody3D" instance=ExtResource("4_6pbjl")]
@@ -207,6 +210,19 @@ layout_mode = 2
 texture = SubResource("CompressedTexture2D_cq6pf")
 expand_mode = 3
 flip_h = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.647499
+offset_top = -10.337019
+offset_right = 748.00885
+offset_bottom = -10.337006
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_dumhp")
 
 [node name="Title" type="Label" parent="HBoxContainer/TextureRect"]
 layout_mode = 0

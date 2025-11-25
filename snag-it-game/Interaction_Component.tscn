@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://eymg6rk238y4"]
+
+[ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="1_oqmx7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_84til"]
+radius = 1.3208008
+height = 4.5202637
+
+[node name="Interacting_Component" type="Node3D"]
+
+[node name="Interact_Range" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interact_Range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.020141602, 0)
+shape = SubResource("CapsuleShape3D_84til")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.957943, 0)
+billboard = 1
+texture_filter = 1
+text = "Press [E] to steal"
+font = ExtResource("1_oqmx7")
+font_size = 45

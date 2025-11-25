@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvk2nbqowoj1c"]
+[gd_scene load_steps=5 format=3 uid="uid://bvk2nbqowoj1c"]
 
 [ext_resource type="Script" uid="uid://c161qcgmfvucw" path="res://scenes/character_body_3d.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://b78xs1wm2c73n" path="res://assets/3DModel/buny/BUNY.fbx" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://eymg6rk238y4" path="res://Interaction_Component.tscn" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cq6pf"]
 height = 2.6107178
@@ -60,5 +61,7 @@ speed_scale = 1.843
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3270874, 0)
 shape = SubResource("CapsuleShape3D_cq6pf")
+
+[node name="Interacting_Component" parent="." instance=ExtResource("3_qhqgy")]
 
 [editable path="BUNY"]

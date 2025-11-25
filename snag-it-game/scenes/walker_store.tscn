@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://bnfwctp8bumc2"]
+[gd_scene load_steps=19 format=3 uid="uid://bnfwctp8bumc2"]
 
 [ext_resource type="Texture2D" uid="uid://dwek1tnvxog24" path="res://assets/image/Textures/floor_tiles_06_basecolor_1k.png" id="1_e2gem"]
 [ext_resource type="Texture2D" uid="uid://t3ka7xk7qr6e" path="res://assets/image/Textures/floor_tiles_06_normal_dx_1k.png" id="2_hcjad"]
-[ext_resource type="Script" uid="uid://c161qcgmfvucw" path="res://scenes/character_body_3d.gd" id="3_hcjad"]
 [ext_resource type="Script" uid="uid://bh3upq4hd7xxr" path="res://scenes/interaction_hitbox.gd" id="4_0flql"]
-[ext_resource type="PackedScene" uid="uid://b78xs1wm2c73n" path="res://assets/3DModel/buny/BUNY.fbx" id="4_6pbjl"]
+[ext_resource type="PackedScene" uid="uid://bvk2nbqowoj1c" path="res://scenes/player.tscn" id="5_0flql"]
 [ext_resource type="Script" uid="uid://cuf4qdka1sq2i" path="res://scenes/h_box_container.gd" id="6_0flql"]
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="6_cq6pf"]
 [ext_resource type="Texture2D" uid="uid://byp40vqvegqeh" path="res://assets/image/paper.jpg" id="8_dumhp"]
@@ -36,7 +35,6 @@ uv1_scale = Vector3(9.56, 9.56, 9.56)
 [sub_resource type="PlaneMesh" id="PlaneMesh_cq6pf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cq6pf"]
-size = Vector3(2, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cq6pf"]
 transparency = 1
@@ -50,9 +48,6 @@ size = Vector3(2, 2, 2)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ukl5u"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dumhp"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cq6pf"]
-height = 2.6107178
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cq6pf"]
 
@@ -141,61 +136,8 @@ debug_color = Color(0.9551018, 8.663535e-07, 0.54751056, 0.41960785)
 mesh = SubResource("BoxMesh_dumhp")
 skeleton = NodePath("../..")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2839966, 0)
-collision_layer = 5
-script = ExtResource("3_hcjad")
-
-[node name="BUNY" parent="CharacterBody3D" instance=ExtResource("4_6pbjl")]
-transform = Transform3D(0.59, 0, 0, 0, 0.59, 0, 0, 0, 0.59, 0, -0.89, 0)
-
-[node name="Armature" parent="CharacterBody3D/BUNY" index="0"]
-transform = Transform3D(-11.529951, 99.33308, 4.341987e-06, 0, -4.371139e-06, 100, 99.33307, 11.529951, 5.039902e-07, 0.13267869, 1.3285813, 0)
-
-[node name="Skeleton3D" parent="CharacterBody3D/BUNY/Armature" index="0"]
-bones/1/position = Vector3(-0.0004237981, 0.00058092986, -0.0029266186)
-bones/1/rotation = Quaternion(0.9879123, 0.05508156, 0.1384174, -0.042849723)
-bones/1/scale = Vector3(1.0000035, 1.0000004, 1.0000008)
-bones/2/position = Vector3(9.648104e-11, 0.0045358804, 3.5845698e-11)
-bones/2/rotation = Quaternion(-0.054118413, -0.19789529, 0.046755385, 0.97761065)
-bones/2/scale = Vector3(0.9999999, 1.0000002, 1.0000001)
-bones/4/position = Vector3(0.00019158667, 0.00030492866, 0.0030048583)
-bones/4/rotation = Quaternion(0.11624766, 0.037024308, 0.9891518, -0.08182028)
-bones/4/scale = Vector3(0.9999974, 0.99999964, 0.9999999)
-bones/5/position = Vector3(-2.4155977e-10, 0.004221458, 1.2441119e-10)
-bones/5/rotation = Quaternion(-0.018628089, -0.15309626, -0.052591216, 0.986635)
-bones/5/scale = Vector3(1, 1.0000001, 1.0000002)
-bones/7/position = Vector3(4.134317e-11, 0.0064456533, 7.3251204e-11)
-bones/7/rotation = Quaternion(-0.0246979, 0.08333952, 0.10070987, 0.9911116)
-bones/7/scale = Vector3(0.9999999, 1, 0.99999994)
-bones/8/position = Vector3(-0.0005674971, 0.005709716, -0.003770588)
-bones/8/rotation = Quaternion(-0.9786797, 0.0099565815, 0.039050523, 0.20140003)
-bones/8/scale = Vector3(1.0000001, 1, 1.0000001)
-bones/9/position = Vector3(6.468236e-11, 0.005289103, -1.191798e-09)
-bones/9/rotation = Quaternion(-0.035778567, 0.28793377, -0.19374228, 0.9371649)
-bones/9/scale = Vector3(0.99999994, 1, 0.9999998)
-bones/11/position = Vector3(-0.000589269, 0.0046756077, 0.004275103)
-bones/11/rotation = Quaternion(0.96094084, -0.11798528, 0.12587659, 0.2163959)
-bones/11/scale = Vector3(1.0000001, 1.0000001, 0.99999994)
-bones/12/position = Vector3(4.6232182e-10, 0.0053603537, -4.5948914e-10)
-bones/12/rotation = Quaternion(0.3497782, 0.019993676, -0.28070474, 0.89356613)
-bones/12/scale = Vector3(0.99999994, 0.9999998, 0.99999976)
-bones/14/position = Vector3(-1.15558715e-10, 0.004443517, -1.7569227e-10)
-bones/14/rotation = Quaternion(0.01579706, 0.008541072, -0.002588399, 0.99983543)
-bones/14/scale = Vector3(1.0000001, 1.0000001, 1)
-
-[node name="Cube" parent="CharacterBody3D/BUNY/Armature/Skeleton3D" index="0"]
-gi_mode = 2
-
-[node name="Cube_001" parent="CharacterBody3D/BUNY/Armature/Skeleton3D" index="1"]
-gi_mode = 2
-
-[node name="AnimationPlayer" parent="CharacterBody3D/BUNY" index="1"]
-speed_scale = 1.843
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3270874, 0)
-shape = SubResource("CapsuleShape3D_cq6pf")
+[node name="CharacterBody3D2" parent="." instance=ExtResource("5_0flql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2958893, 0)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = 981.0
@@ -307,4 +249,5 @@ theme_override_font_sizes/font_size = 25
 text = "item 6"
 horizontal_alignment = 1
 
-[editable path="CharacterBody3D/BUNY"]
+[editable path="CharacterBody3D2"]
+[editable path="CharacterBody3D2/BUNY"]

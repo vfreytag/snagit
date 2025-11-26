@@ -61,6 +61,12 @@ Back={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Floor & Objects"
+3d_physics/layer_2="Hitbox No Collision"
+3d_physics/layer_3="Character"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

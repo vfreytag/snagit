@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dwek1tnvxog24" path="res://assets/image/Textures/floor_tiles_06_basecolor_1k.png" id="1_e2gem"]
 [ext_resource type="Texture2D" uid="uid://t3ka7xk7qr6e" path="res://assets/image/Textures/floor_tiles_06_normal_dx_1k.png" id="2_hcjad"]
-[ext_resource type="Script" uid="uid://bh3upq4hd7xxr" path="res://scenes/interaction_hitbox.gd" id="4_0flql"]
 [ext_resource type="PackedScene" uid="uid://bvk2nbqowoj1c" path="res://scenes/player.tscn" id="5_0flql"]
+[ext_resource type="Script" uid="uid://b6w08mxby70a0" path="res://interact.gd" id="5_dumhp"]
 [ext_resource type="Script" uid="uid://cuf4qdka1sq2i" path="res://scenes/h_box_container.gd" id="6_0flql"]
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="6_cq6pf"]
 [ext_resource type="Texture2D" uid="uid://byp40vqvegqeh" path="res://assets/image/paper.jpg" id="8_dumhp"]
@@ -34,7 +34,11 @@ uv1_scale = Vector3(9.56, 9.56, 9.56)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cq6pf"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ukl5u"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_cq6pf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dumhp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cq6pf"]
 transparency = 1
@@ -44,10 +48,6 @@ albedo_color = Color(0.45840502, 0.45840508, 0.45840502, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_0flql"]
 material = SubResource("StandardMaterial3D_cq6pf")
 size = Vector3(2, 2, 2)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ukl5u"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_dumhp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cq6pf"]
 
@@ -101,26 +101,10 @@ transform = Transform3D(-4.3711393e-10, 0, 0.010000002, 0.010000002, -4.3711396e
 shape = SubResource("WorldBoundaryShape3D_6pbjl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Floor/StaticBody3D/CollisionShape3D"]
-transform = Transform3D(37.028603, -7.17e-43, -1.0842022e-19, -8.131516e-20, 10, 6.4623485e-27, 8.131516e-20, -1.6155871e-27, 41.988556, 0, 0, 0)
+transform = Transform3D(37.028603, -7.17e-43, -1.2197274e-19, -8.131516e-20, 10, 7.270142e-27, 8.131516e-20, -1.8175355e-27, 41.988556, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ukl5u")
 mesh = SubResource("PlaneMesh_cq6pf")
 skeleton = NodePath("../../../../..")
-
-[node name="InteractionHitbox" type="Node" parent="Environment"]
-script = ExtResource("4_0flql")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/InteractionHitbox"]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/InteractionHitbox/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.088012695, 0.1317749, -0.017730713)
-shape = SubResource("BoxShape3D_cq6pf")
-debug_color = Color(0.9551018, 8.663535e-07, 0.54751056, 0.41960785)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/InteractionHitbox/StaticBody3D/CollisionShape3D2"]
-mesh = SubResource("BoxMesh_0flql")
-skeleton = NodePath("../..")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5077543, 1.9158211)
@@ -134,6 +118,58 @@ debug_color = Color(0.9551018, 8.663535e-07, 0.54751056, 0.41960785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/RigidBody3D/CollisionShape3D"]
 mesh = SubResource("BoxMesh_dumhp")
+skeleton = NodePath("../..")
+
+[node name="InteractionHitbox" type="Node" parent="Environment/RigidBody3D"]
+script = ExtResource("5_dumhp")
+interact_name = "Catfood"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/RigidBody3D/InteractionHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4858266)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/RigidBody3D/InteractionHitbox/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.088012695, 0.1317749, -0.017730713)
+shape = SubResource("BoxShape3D_cq6pf")
+debug_color = Color(0.9551018, 8.663535e-07, 0.54751056, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/RigidBody3D/InteractionHitbox/StaticBody3D/CollisionShape3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.597713)
+mesh = SubResource("BoxMesh_0flql")
+skeleton = NodePath("../..")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8455758, 0.5077543, 1.9158211)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_ukl5u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/RigidBody3D2"]
+visibility_parent = NodePath("MeshInstance3D")
+shape = SubResource("BoxShape3D_cq6pf")
+debug_color = Color(0.9551018, 8.663535e-07, 0.54751056, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/RigidBody3D2/CollisionShape3D"]
+mesh = SubResource("BoxMesh_dumhp")
+skeleton = NodePath("../..")
+
+[node name="InteractionHitbox" type="Node" parent="Environment/RigidBody3D2"]
+script = ExtResource("5_dumhp")
+interact_name = "Get Milk"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/RigidBody3D2/InteractionHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9452276, 0, 1.4858266)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Environment/RigidBody3D2/InteractionHitbox/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.088012695, 0.1317749, -0.017730713)
+shape = SubResource("BoxShape3D_cq6pf")
+debug_color = Color(0.9551018, 8.663535e-07, 0.54751056, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/RigidBody3D2/InteractionHitbox/StaticBody3D/CollisionShape3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7615886)
+mesh = SubResource("BoxMesh_0flql")
 skeleton = NodePath("../..")
 
 [node name="CharacterBody3D2" parent="." instance=ExtResource("5_0flql")]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://ciecorxl6q12n"]
+
+[ext_resource type="Script" uid="uid://p8wflla2ew4f" path="res://milk.gd" id="1_6cw6f"]
+[ext_resource type="Texture2D" uid="uid://cd04b1epra4al" path="res://assets/image/milk.jpeg" id="1_fst1a"]
+[ext_resource type="PackedScene" uid="uid://drfk677h6qjs4" path="res://interactable.tscn" id="2_6cw6f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e14tj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jsvp8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3umbl"]
+albedo_texture = ExtResource("1_fst1a")
+
+[sub_resource type="BoxMesh" id="BoxMesh_fst1a"]
+material = SubResource("StandardMaterial3D_3umbl")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7rqp0"]
+radius = 1.4112363
+
+[node name="Milk" type="Node3D"]
+script = ExtResource("1_6cw6f")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_e14tj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+visibility_parent = NodePath("MeshInstance3D")
+shape = SubResource("BoxShape3D_jsvp8")
+debug_color = Color(0.9551018, 8.663535e-07, 0.54751056, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_fst1a")
+skeleton = NodePath("../..")
+
+[node name="Interactable" parent="RigidBody3D/CollisionShape3D/MeshInstance3D" instance=ExtResource("2_6cw6f")]
+interact_name = "Steal milk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/Interactable"]
+shape = SubResource("SphereShape3D_7rqp0")

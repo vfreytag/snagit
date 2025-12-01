@@ -4,4 +4,5 @@ extends Node
 @export var is_interactable: bool = true
 
 var interact: Callable = func():
+	is_interactable = false
 	pass

@@ -28,3 +28,4 @@ font = ExtResource("1_oqmx7")
 font_size = 45
 
 [connection signal="area_entered" from="Interact_Range" to="." method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="Interact_Range" to="." method="_on_interact_range_area_exited"]

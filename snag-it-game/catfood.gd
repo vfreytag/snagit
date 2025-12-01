@@ -12,4 +12,5 @@ func _on_interact():
 #		sprite_2d.frame = 1
 	if interactable.is_interactable == true:
 		interactable.is_interactable = false
-		print("the player gained milk")
+		print("the player gained catfood")
+		

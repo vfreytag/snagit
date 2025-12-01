@@ -38,9 +38,3 @@ func _on_interact_range_area_entered(Area3D) -> void:
 func _on_interact_range_area_exited(Area3D) -> void:
 	print("au reviour")
 	current_interactions.erase(Area3D)
-
-
-
-func _on_area_exited(area: Area3D):
-	print("au revior")
-	current_interactions.erase(Area3D)

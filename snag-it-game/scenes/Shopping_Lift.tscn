@@ -38,7 +38,6 @@ offset_bottom = 123.22434
 scale = Vector2(1.8647499, 1)
 theme_override_colors/font_color = Color(0.0253638, 0.0253638, 0.025363795, 1)
 theme_override_font_sizes/font_size = 25
-text = "item 1"
 horizontal_alignment = 1
 
 [node name="Item2" type="Label" parent="TextureRect"]
@@ -50,7 +49,6 @@ offset_bottom = 185.24646
 scale = Vector2(1.8647499, 1)
 theme_override_colors/font_color = Color(0.0253638, 0.0253638, 0.025363795, 1)
 theme_override_font_sizes/font_size = 25
-text = "item 2"
 horizontal_alignment = 1
 
 [node name="Item3" type="Label" parent="TextureRect"]
@@ -62,7 +60,6 @@ offset_bottom = 247.26857
 scale = Vector2(1.8647499, 1)
 theme_override_colors/font_color = Color(0.0253638, 0.0253638, 0.025363795, 1)
 theme_override_font_sizes/font_size = 25
-text = "item 3"
 horizontal_alignment = 1
 
 [node name="Item4" type="Label" parent="TextureRect"]
@@ -74,7 +71,7 @@ offset_bottom = 309.29068
 scale = Vector2(1.8647499, 1)
 theme_override_colors/font_color = Color(0.0253638, 0.0253638, 0.025363795, 1)
 theme_override_font_sizes/font_size = 25
-text = "item 4"
+text = " "
 horizontal_alignment = 1
 
 [node name="Item5" type="Label" parent="TextureRect"]
@@ -86,7 +83,6 @@ offset_bottom = 373.3802
 scale = Vector2(1.8647499, 1)
 theme_override_colors/font_color = Color(0.0253638, 0.0253638, 0.025363795, 1)
 theme_override_font_sizes/font_size = 25
-text = "item 5"
 horizontal_alignment = 1
 
 [node name="Item6" type="Label" parent="TextureRect"]
@@ -98,5 +94,4 @@ offset_bottom = 433.3349
 scale = Vector2(1.8647499, 1)
 theme_override_colors/font_color = Color(0.0253638, 0.0253638, 0.025363795, 1)
 theme_override_font_sizes/font_size = 25
-text = "item 6"
 horizontal_alignment = 1

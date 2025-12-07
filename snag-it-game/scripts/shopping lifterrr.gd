@@ -16,10 +16,15 @@ func _ready() -> void:
 		
 	files.shuffle()
 	
+	if files.size() < 3:
+		print("Not enough grocery items!")
+		return
+	
 	for file in files: 
 		#var res := load(dir.get_current_dir() + "/" + file)
-		$TextureRect/Item1.text = file.get_basename()
-		$TextureRect/Item2.text = file.get_basename()
+		$TextureRect/Item1.text = files[0].get_basename()
+		$TextureRect/Item2.text = files[1].get_basename()
+		$TextureRect/Item3.text = files[2].get_basename()
 		print(file.get_basename())
 
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://lj42gqkc5bdw"]
+[gd_scene load_steps=7 format=3 uid="uid://d10tmv7f8rcks"]
 
 [ext_resource type="Script" uid="uid://detx1isl2q31q" path="res://catfood.gd" id="1_pil02"]
 [ext_resource type="PackedScene" uid="uid://drfk677h6qjs4" path="res://interactable.tscn" id="3_mkfqr"]

@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bnfwctp8bumc2"]
+[gd_scene load_steps=15 format=3 uid="uid://bnfwctp8bumc2"]
 
 [ext_resource type="Texture2D" uid="uid://dwek1tnvxog24" path="res://assets/image/Textures/floor_tiles_06_basecolor_1k.png" id="1_e2gem"]
 [ext_resource type="Texture2D" uid="uid://t3ka7xk7qr6e" path="res://assets/image/Textures/floor_tiles_06_normal_dx_1k.png" id="2_hcjad"]
 [ext_resource type="PackedScene" uid="uid://lj42gqkc5bdw" path="res://assets/grocery_items/Catfood.tscn" id="4_dumhp"]
 [ext_resource type="PackedScene" uid="uid://bvk2nbqowoj1c" path="res://scenes/player.tscn" id="5_0flql"]
 [ext_resource type="PackedScene" uid="uid://bdvqnx00sou37" path="res://assets/grocery_items/A Can of Creamed Corn.tscn" id="5_rlh5t"]
-[ext_resource type="Script" path="res://scenes/h_box_container.gd" id="6_0flql"]
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="6_cq6pf"]
 [ext_resource type="PackedScene" uid="uid://ciecorxl6q12n" path="res://assets/grocery_items/Oatmilk.tscn" id="7_0flql"]
 [ext_resource type="Texture2D" uid="uid://byp40vqvegqeh" path="res://assets/image/paper.jpg" id="8_dumhp"]
@@ -105,13 +104,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1191382, 0.9558914, -3.079
 [node name="CharacterBody3D2" parent="." instance=ExtResource("5_0flql")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2958893, 0)
 
+[node name="Skeleton3D" parent="CharacterBody3D2/BUNY/Armature" index="0"]
+bones/0/position = Vector3(-0.0008438246, -0.00051336037, -0.0050032465)
+bones/1/position = Vector3(-0.0004237981, 0.0005809298, -0.0029266188)
+bones/1/rotation = Quaternion(0.9885069, 0.0830315, 0.11545695, -0.051279835)
+bones/2/rotation = Quaternion(-0.04309616, -0.20082164, -0.004553451, 0.9786688)
+bones/4/position = Vector3(0.00019158656, 0.00030492895, 0.0030048583)
+bones/7/rotation = Quaternion(-0.026560381, 0.083166935, 0.061976284, 0.9942519)
+bones/8/position = Vector3(-0.000567497, 0.0057097157, -0.0037705884)
+bones/8/rotation = Quaternion(-0.9786797, 0.00995658, 0.03905052, 0.20140003)
+bones/9/rotation = Quaternion(-0.035778534, 0.2879337, -0.19374225, 0.93716484)
+bones/11/position = Vector3(-0.00058926875, 0.004675607, 0.004275103)
+bones/11/rotation = Quaternion(0.9662717, -0.046394777, 0.14319459, 0.20895384)
+bones/12/rotation = Quaternion(0.34977815, 0.019993698, -0.28070465, 0.8935662)
+bones/14/rotation = Quaternion(0.016386963, 0.0085740825, -0.015552124, 0.9997081)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = 981.0
 offset_top = 411.0
 offset_right = 1716.0
 offset_bottom = 901.0
 scale = Vector2(0.23128073, 0.48369846)
-script = ExtResource("6_0flql")
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2

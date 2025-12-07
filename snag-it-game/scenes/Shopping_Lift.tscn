@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://da6cffdyl2wus"]
 
-[ext_resource type="Script" uid="uid://cuf4qdka1sq2i" path="res://scenes/h_box_container.gd" id="1_xfljo"]
+[ext_resource type="Script" uid="uid://cuf4qdka1sq2i" path="res://scripts/shopping lifterrr.gd" id="1_xfljo"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cq6pf"]
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://bskmd2apkswko"]
 
-[ext_resource type="Script" uid="uid://c5klt2xai3lxg" path="res://scripts/health.gd" id="1_afmb6"]
-[ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="2_17asv"]
-[ext_resource type="PackedScene" uid="uid://cc7od088y2k8p" path="res://assets/3DModel/hand.fbx" id="3_p50cr"]
-[ext_resource type="Script" uid="uid://dexlrgkbwhltt" path="res://scripts/write_overlay.gd" id="3_yrcgg"]
-[ext_resource type="PackedScene" uid="uid://xpmr6nhjtiga" path="res://scenes/TypingScreen.tscn" id="5_ol6fe"]
-[ext_resource type="PackedScene" uid="uid://b1dsdhs65wt1y" path="res://scenes/steal_ui.tscn" id="8_h82ry"]
+[ext_resource type="Script" uid="uid://c5klt2xai3lxg" path="res://scripts/health.gd" id="1_wgo3c"]
+[ext_resource type="PackedScene" uid="uid://xpmr6nhjtiga" path="res://scenes/UI/assets/TypingScreen.tscn" id="2_wkgvl"]
+[ext_resource type="Script" uid="uid://dexlrgkbwhltt" path="res://scripts/write_overlay.gd" id="3_vwxd4"]
+[ext_resource type="PackedScene" uid="uid://b1dsdhs65wt1y" path="res://scenes/UI/assets/steal_ui.tscn" id="4_gs6ki"]
+[ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="5_e2prt"]
+[ext_resource type="PackedScene" uid="uid://cc7od088y2k8p" path="res://assets/3DModel/hand.fbx" id="6_b2rmr"]
 
 [sub_resource type="GDScript" id="GDScript_y0lg1"]
 script/source = "extends Node3D
@@ -15,11 +15,11 @@ var health: int = 60
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a0tk4"]
 render_priority = 0
-shader = ExtResource("2_17asv")
+shader = ExtResource("5_e2prt")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_noarx"]
 render_priority = 0
-shader = ExtResource("2_17asv")
+shader = ExtResource("5_e2prt")
 
 [sub_resource type="QuadMesh" id="QuadMesh_r3fl7"]
 material = SubResource("ShaderMaterial_noarx")
@@ -30,7 +30,7 @@ size = Vector2(2, 2)
 script = SubResource("GDScript_y0lg1")
 
 [node name="Health" type="Node" parent="."]
-script = ExtResource("1_afmb6")
+script = ExtResource("1_wgo3c")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
@@ -44,10 +44,10 @@ offset_top = 1.0
 offset_right = 1150.0
 offset_bottom = 652.0
 
-[node name="TypingScreen" parent="Control" instance=ExtResource("5_ol6fe")]
-script = ExtResource("3_yrcgg")
+[node name="TypingScreen" parent="Control" instance=ExtResource("2_wkgvl")]
+script = ExtResource("3_vwxd4")
 
-[node name="Steal_UI" parent="Control" instance=ExtResource("8_h82ry")]
+[node name="Steal_UI" parent="Control" instance=ExtResource("4_gs6ki")]
 layout_mode = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -68,8 +68,7 @@ size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -13.018208, 1.8570094, -1.2334423)
-current = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.6393847, 0.06525624)
 size = 10.0
 far = 97.06
 
@@ -81,12 +80,12 @@ mesh = SubResource("QuadMesh_r3fl7")
 skeleton = NodePath("../../..")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.9292745, 0, 0.36938995, -0.06860239, 0.9826031, 0.17258307, -0.3629637, -0.18571807, 0.913108, 1.045615, 0.65982354, 2.563148)
+transform = Transform3D(0.9292745, -6.923634e-08, 0.36938998, -0.22242798, 0.79838336, 0.55956227, -0.29491484, -0.6021496, 0.74191725, 1.045615, 3.2688007, 3.6274457)
 light_color = Color(0.83137256, 0.61960787, 1, 1)
 light_energy = 3.474
 
-[node name="hand" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_p50cr")]
-transform = Transform3D(5.6365215e-16, -1.2894856e-08, 0.29499996, -0.21025725, 0.20692235, 9.044865e-09, -0.20692238, -0.21025723, -9.190636e-09, -13.191219, 1.285172, -0.549983)
+[node name="hand" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_b2rmr")]
+transform = Transform3D(5.6365215e-16, -1.2894856e-08, 0.29499996, -0.21025725, 0.20692235, 9.044865e-09, -0.20692238, -0.21025723, -9.190636e-09, 0, 2.1439943, 1.0642977)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

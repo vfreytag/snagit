@@ -4,10 +4,10 @@
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="2_r5103"]
 [ext_resource type="PackedScene" uid="uid://cc7od088y2k8p" path="res://assets/3DModel/hand.fbx" id="3_1hmnf"]
 [ext_resource type="PackedScene" uid="uid://ts0jojcndxlt" path="res://assets/3DModel/area/market1.fbx" id="4_5f8kp"]
-[ext_resource type="PackedScene" uid="uid://xpmr6nhjtiga" path="res://scenes/TypingScreen.tscn" id="5_hgm0n"]
+[ext_resource type="PackedScene" uid="uid://xpmr6nhjtiga" path="res://scenes/UI/assets/TypingScreen.tscn" id="5_hgm0n"]
 [ext_resource type="Script" uid="uid://cf3jly0fb5hb5" path="res://scripts/typing_screen.gd" id="6_fkvhv"]
 [ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="7_bkpo8"]
-[ext_resource type="PackedScene" uid="uid://b1dsdhs65wt1y" path="res://scenes/steal_ui.tscn" id="8_wxrva"]
+[ext_resource type="PackedScene" uid="uid://b1dsdhs65wt1y" path="res://scenes/UI/assets/steal_ui.tscn" id="8_wxrva"]
 
 [sub_resource type="GDScript" id="GDScript_y0lg1"]
 script/source = "extends Node3D

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://ciecorxl6q12n"]
 
-[ext_resource type="Script" uid="uid://p8wflla2ew4f" path="res://milk.gd" id="1_6cw6f"]
+[ext_resource type="Script" uid="uid://p8wflla2ew4f" path="res://scripts/milk.gd" id="1_6cw6f"]
 [ext_resource type="Texture2D" uid="uid://cd04b1epra4al" path="res://assets/image/milk.jpeg" id="1_fst1a"]
-[ext_resource type="PackedScene" uid="uid://drfk677h6qjs4" path="res://interactable.tscn" id="2_6cw6f"]
+[ext_resource type="PackedScene" uid="uid://drfk677h6qjs4" path="res://scenes/character_interaction/interactable.tscn" id="2_6cw6f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e14tj"]
 

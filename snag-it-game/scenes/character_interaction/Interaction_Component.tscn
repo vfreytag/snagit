@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://eymg6rk238y4"]
 
-[ext_resource type="Script" uid="uid://o1j50rj464kk" path="res://interaction_component.gd" id="1_84til"]
+[ext_resource type="Script" uid="uid://o1j50rj464kk" path="res://scripts/interaction_component.gd" id="1_84til"]
 [ext_resource type="FontFile" uid="uid://fv4cc6dgpa4t" path="res://assets/fonts/OpenDyslexic-Bold.woff2" id="1_oqmx7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_84til"]

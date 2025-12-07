@@ -7,4 +7,7 @@ var halfhealth: bool = false
 var quathealth: bool = false
 var nohealth: bool = false
 
+var word_key = ""
+var input_key = ""
+
 var highscore := 0

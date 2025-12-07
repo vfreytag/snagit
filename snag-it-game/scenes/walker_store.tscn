@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bnfwctp8bumc2"]
+[gd_scene load_steps=16 format=3 uid="uid://bnfwctp8bumc2"]
 
 [ext_resource type="Texture2D" uid="uid://dwek1tnvxog24" path="res://assets/image/Textures/floor_tiles_06_basecolor_1k.png" id="1_e2gem"]
 [ext_resource type="Texture2D" uid="uid://t3ka7xk7qr6e" path="res://assets/image/Textures/floor_tiles_06_normal_dx_1k.png" id="2_hcjad"]
 [ext_resource type="PackedScene" uid="uid://lj42gqkc5bdw" path="res://assets/grocery_items/Catfood.tscn" id="4_dumhp"]
 [ext_resource type="PackedScene" uid="uid://bvk2nbqowoj1c" path="res://scenes/player.tscn" id="5_0flql"]
+[ext_resource type="PackedScene" uid="uid://bdvqnx00sou37" path="res://assets/grocery_items/A Can of Creamed Corn.tscn" id="5_rlh5t"]
 [ext_resource type="Script" path="res://scenes/h_box_container.gd" id="6_0flql"]
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="6_cq6pf"]
 [ext_resource type="PackedScene" uid="uid://ciecorxl6q12n" path="res://assets/grocery_items/Oatmilk.tscn" id="7_0flql"]
@@ -94,6 +95,9 @@ skeleton = NodePath("../../../../..")
 
 [node name="catfood" parent="Environment" instance=ExtResource("4_dumhp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3316066, 1.0029318, 2.5277143)
+
+[node name="Can of Creamed Corn" parent="Environment" instance=ExtResource("5_rlh5t")]
+transform = Transform3D(-0.9449432, 0, 0.32723442, 0, 1, 0, -0.32723442, 0, -0.9449432, 1.7231443, 0.8104987, -3.2643414)
 
 [node name="Oatmilk" parent="Environment" instance=ExtResource("7_0flql")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1191382, 0.9558914, -3.0799165)

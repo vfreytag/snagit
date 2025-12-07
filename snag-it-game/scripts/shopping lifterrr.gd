@@ -18,6 +18,8 @@ func _ready() -> void:
 	
 	for file in files: 
 		#var res := load(dir.get_current_dir() + "/" + file)
+		$TextureRect/Item1.text = file.get_basename()
+		$TextureRect/Item2.text = file.get_basename()
 		print(file.get_basename())
 
 		
@@ -32,9 +34,9 @@ func _ready() -> void:
 	#var groccery = Array[Resource] = []
 	#for 
 		
-		
-		#$TextureRect/Item1.text = res.Name
-		#$TextureRect/Item2.text = res.Name
+	
+			#$TextureRect/Item1.text = file.get_basename()
+			#$TextureRect/Item2.text = file.get_basename()
 		#$TextureRect/Item3.text = res.Name
 		#$TextureRect/Item4.text = res.Name
 		#$TextureRect/Item5.text = res.Name

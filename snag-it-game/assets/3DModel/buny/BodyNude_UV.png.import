@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ds0ffwk03dsny"
-path.s3tc="res://.godot/imported/Body_UV.png-fbbc03b0315a9bfe62658ee13a5f75f2.s3tc.ctex"
+path.s3tc="res://.godot/imported/BodyNude_UV.png-f58c4d401bac453f22fbd6084885a1e9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/3DModel/buny/Body_UV.png"
-dest_files=["res://.godot/imported/Body_UV.png-fbbc03b0315a9bfe62658ee13a5f75f2.s3tc.ctex"]
+source_file="res://assets/3DModel/buny/BodyNude_UV.png"
+dest_files=["res://.godot/imported/BodyNude_UV.png-f58c4d401bac453f22fbd6084885a1e9.s3tc.ctex"]
 
 [params]
 

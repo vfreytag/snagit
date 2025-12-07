@@ -5,7 +5,7 @@ func _ready() -> void:
 	#randomize array from objects
 	#set text items by array item 1 2 3
 	
-	var dir := DirAccess.open("res://assets/resource/")
+	var dir := DirAccess.open("res://assets/grocery_items/")
 	if dir == null: print("Could not open folder"); return
 	
 	var files: Array[String] = []
@@ -17,8 +17,8 @@ func _ready() -> void:
 	files.shuffle()
 	
 	for file in files: 
-		var res := load(dir.get_current_dir() + "/" + file)
-		print(res.Name)
+		#var res := load(dir.get_current_dir() + "/" + file)
+		print(file.get_basename())
 
 		
 	

@@ -10,4 +10,4 @@ var nohealth: bool = false
 var word_key = ""
 var input_key = ""
 
-var highscore := 0
+#var highscore := 0

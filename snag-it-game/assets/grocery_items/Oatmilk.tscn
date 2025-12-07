@@ -17,7 +17,7 @@ material = SubResource("StandardMaterial3D_3umbl")
 [sub_resource type="SphereShape3D" id="SphereShape3D_7rqp0"]
 radius = 1.4112363
 
-[node name="Milk" type="Node3D"]
+[node name="Oatmilk" type="Node3D"]
 script = ExtResource("1_6cw6f")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]

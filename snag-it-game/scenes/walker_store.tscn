@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bvk2nbqowoj1c" path="res://scenes/player.tscn" id="5_0flql"]
 [ext_resource type="Script" uid="uid://cuf4qdka1sq2i" path="res://scenes/h_box_container.gd" id="6_0flql"]
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="6_cq6pf"]
-[ext_resource type="PackedScene" uid="uid://ciecorxl6q12n" path="res://assets/grocery_items/milk.tscn" id="7_0flql"]
+[ext_resource type="PackedScene" uid="uid://ciecorxl6q12n" path="res://assets/grocery_items/Oatmilk.tscn" id="7_0flql"]
 [ext_resource type="Texture2D" uid="uid://byp40vqvegqeh" path="res://assets/image/paper.jpg" id="8_dumhp"]
 [ext_resource type="PackedScene" uid="uid://lj42gqkc5bdw" path="res://assets/grocery_items/catfood.tscn" id="8_rlh5t"]
 

@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 		if $TextEdit.text == "Play":
 			Global.health == 60
-			get_tree().change_scene_to_file("res://tester_store.tscn")
+			get_tree().change_scene_to_file("res://scenes/tester_store.tscn")
 		if $TextEdit.text == "Quit":
 			$Label.text == "Byebye"
 			get_tree().quit()

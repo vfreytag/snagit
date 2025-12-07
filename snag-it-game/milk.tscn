@@ -35,6 +35,7 @@ skeleton = NodePath("../..")
 
 [node name="Interactable" parent="RigidBody3D/CollisionShape3D/MeshInstance3D" instance=ExtResource("2_6cw6f")]
 interact_name = "Steal milk"
+item_name = "oatmilk"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/Interactable"]
 shape = SubResource("SphereShape3D_7rqp0")

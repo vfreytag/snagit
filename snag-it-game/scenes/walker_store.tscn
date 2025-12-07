@@ -5,20 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://bvk2nbqowoj1c" path="res://scenes/player.tscn" id="5_0flql"]
 [ext_resource type="Script" uid="uid://cuf4qdka1sq2i" path="res://scenes/h_box_container.gd" id="6_0flql"]
 [ext_resource type="Shader" uid="uid://cebygko741jji" path="res://assets/shader/outline.gdshader" id="6_cq6pf"]
-[ext_resource type="PackedScene" uid="uid://ciecorxl6q12n" path="res://milk.tscn" id="7_0flql"]
+[ext_resource type="PackedScene" uid="uid://ciecorxl6q12n" path="res://assets/grocery_items/milk.tscn" id="7_0flql"]
 [ext_resource type="Texture2D" uid="uid://byp40vqvegqeh" path="res://assets/image/paper.jpg" id="8_dumhp"]
-[ext_resource type="PackedScene" uid="uid://lj42gqkc5bdw" path="res://catfood.tscn" id="8_rlh5t"]
+[ext_resource type="PackedScene" uid="uid://lj42gqkc5bdw" path="res://assets/grocery_items/catfood.tscn" id="8_rlh5t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0flql"]
 render_priority = 0
 shader = ExtResource("6_cq6pf")
-shader_parameter/depth_threshold = 0.05
-shader_parameter/reverse_depth_threshold = 0.25
-shader_parameter/normal_threshold = 0.6
-shader_parameter/darken_amount = 0.3
-shader_parameter/lighten_amount = 1.5
-shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
-shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
 
 [sub_resource type="Environment" id="Environment_cq6pf"]
 background_mode = 1

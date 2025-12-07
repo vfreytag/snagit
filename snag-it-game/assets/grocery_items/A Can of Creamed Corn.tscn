@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdvqnx00sou37"]
+
+[ext_resource type="Script" uid="uid://p8wflla2ew4f" path="res://milk.gd" id="1_5hbe8"]
+[ext_resource type="PackedScene" uid="uid://drfk677h6qjs4" path="res://interactable.tscn" id="3_l88pk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e14tj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jsvp8"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5jkre"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7rqp0"]
+radius = 1.4112363
+
+[node name="Can of Creamed Corn" type="Node3D"]
+script = ExtResource("1_5hbe8")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_e14tj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+visibility_parent = NodePath("MeshInstance3D")
+shape = SubResource("BoxShape3D_jsvp8")
+debug_color = Color(0.9551018, 8.663535e-07, 0.54751056, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_5jkre")
+skeleton = NodePath("../..")
+
+[node name="Interactable" parent="RigidBody3D/CollisionShape3D/MeshInstance3D" instance=ExtResource("3_l88pk")]
+interact_name = "Steal can of creamed corn"
+item_name = "Can of Creamed Corn"
+item_regex = "^C(a(n( (o(f( (C(r(e(a(m(e(d( (C(o(r(n)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?)?$"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D/Interactable"]
+shape = SubResource("SphereShape3D_7rqp0")

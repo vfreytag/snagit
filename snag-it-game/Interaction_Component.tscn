@@ -22,10 +22,10 @@ shape = SubResource("CapsuleShape3D_84til")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.957943, 0)
 billboard = 1
-texture_filter = 1
 text = "Press [E] to steal"
 font = ExtResource("1_oqmx7")
-font_size = 45
+font_size = 50
+outline_size = 20
 
 [connection signal="area_entered" from="Interact_Range" to="." method="_on_interact_range_area_entered"]
 [connection signal="area_exited" from="Interact_Range" to="." method="_on_interact_range_area_exited"]
